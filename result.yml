@@ -22,6 +22,7 @@ tags:
   - name: Admin
   - name: Admin > Customers
   - name: Admin > User
+  - name: Admin > Product Category
   - name: Public
   - name: Public > Auth
 paths:
@@ -68,6 +69,63 @@ paths:
           description: Successful response
           content:
             application/json: {}
+  /admin/customers/{slug}:
+    post:
+      tags:
+        - Admin > Customers
+      summary: update customer details
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  example: Nitesh Hamal
+                email:
+                  type: string
+                  example: nitesh@gmail.com
+                phone:
+                  type: integer
+                  example: '9813371345'
+                address:
+                  type: string
+                  example: KTM
+                _method:
+                  type: string
+                  example: put
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: slug
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    delete:
+      tags:
+        - Admin > Customers
+      summary: delete customer
+      parameters:
+        - name: slug
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
   /admin/users:
     post:
       tags:
@@ -94,6 +152,42 @@ paths:
                 status:
                   type: string
                   example: Active
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /admin/product-categories:
+    post:
+      tags:
+        - Admin > Product Category
+      summary: create product category
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                category_name:
+                  type: string
+                  example: Momo
+                parent_category:
+                  type: string
+                  example: Foods
+                description:
+                  type: string
+                  example: My momo
+                category_image:
+                  type: string
+                  format: binary
+                bar:
+                  type: string
       parameters:
         - name: Accept
           in: header
