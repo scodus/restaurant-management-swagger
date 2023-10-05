@@ -1,0 +1,135 @@
+openapi: 3.0.0
+info:
+  title: Restaurant Management
+  description: Restaurant Management API documentation
+  version: '1.0'
+  x-logo:
+    url: https://github.com/joolfe/logoBanner.png
+    backgroundColor: '#FFFFFF'
+    altText: logo
+  termsOfService: '#'
+  contact:
+    name: Scodus
+    url: https://scodus.com
+    email: scodusnp@gmail.com
+  license:
+    name: MIT
+    url: https://es.wikipedia.org/wiki/Licencia_MIT
+servers:
+  - url: https://restaurant-admin-orcin.vercel.app/
+    description: server
+tags:
+  - name: Admin
+  - name: Admin > Customers
+  - name: Admin > User
+  - name: Public
+  - name: Public > Auth
+paths:
+  /admin/customers:
+    post:
+      tags:
+        - Admin > Customers
+      summary: create customer account
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  example: Nitesh Hamal
+                email:
+                  type: string
+                  example: nitesh@gmail.com
+                phone:
+                  type: integer
+                  example: '9825915122'
+                address:
+                  type: string
+                  example: KTM
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    get:
+      tags:
+        - Admin > Customers
+      summary: get all customers
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /admin/users:
+    post:
+      tags:
+        - Admin > User
+      summary: create user account
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  example: Hancie Phago
+                email:
+                  type: string
+                  example: hancie@gmail.com
+                password:
+                  type: integer
+                  example: '12345678'
+                password_confirmation:
+                  type: integer
+                  example: '12345678'
+                status:
+                  type: string
+                  example: Active
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/login:
+    post:
+      tags:
+        - Public > Auth
+      summary: login
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                  example: hanciephago@gmail.com
+                password:
+                  type: string
+                  example: password
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
