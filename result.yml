@@ -23,6 +23,7 @@ tags:
   - name: Admin > Customers
   - name: Admin > User
   - name: Admin > Product Category
+  - name: Admin > Product Variation
   - name: Public
   - name: Public > Auth
 paths:
@@ -194,6 +195,195 @@ paths:
           schema:
             type: string
           example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    get:
+      tags:
+        - Admin > Product Category
+      summary: get all product category
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /admin/product-categories/{slug}:
+    delete:
+      tags:
+        - Admin > Product Category
+      summary: delete product category
+      parameters:
+        - name: slug
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    get:
+      tags:
+        - Admin > Product Category
+      summary: get single product category
+      parameters:
+        - name: slug
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    post:
+      tags:
+        - Admin > Product Category
+      summary: updated product category
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                category_name:
+                  type: string
+                  example: Momo
+                parent_category:
+                  type: string
+                  example: Drink
+                category_image:
+                  type: string
+                  format: binary
+                description:
+                  type: string
+                  example: My momo
+                bar:
+                  type: integer
+                  example: '1'
+                _method:
+                  type: string
+                  example: put
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: slug
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /admin/product-variations:
+    post:
+      tags:
+        - Admin > Product Variation
+      summary: store product variation
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                variation_name:
+                  type: string
+                  example: Masala Tea
+                description:
+                  type: string
+                  example: Masala Tea
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    get:
+      tags:
+        - Admin > Product Variation
+      summary: get all product variation
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: pagination_limit
+          in: query
+          schema:
+            type: integer
+          example: '2'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /admin/product-variations/{product_id}:
+    post:
+      tags:
+        - Admin > Product Variation
+      summary: update product variation
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                variation_name:
+                  type: string
+                  example: Momo
+                description:
+                  type: string
+                  example: Steamed Momo
+                _method:
+                  type: string
+                  example: put
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: product_id
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    delete:
+      tags:
+        - Admin > Product Variation
+      summary: delete product variation
+      parameters:
+        - name: product_id
+          in: path
+          schema:
+            type: string
+          required: true
       responses:
         '200':
           description: Successful response

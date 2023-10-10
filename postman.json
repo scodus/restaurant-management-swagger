@@ -283,8 +283,328 @@
 								}
 							},
 							"response": []
+						},
+						{
+							"name": "get all product category",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url}}/admin/product-categories",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"product-categories"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "delete product category",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/admin/product-categories/:slug",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"product-categories",
+										":slug"
+									],
+									"variable": [
+										{
+											"key": "slug",
+											"value": ""
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get single product category",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/admin/product-categories/:slug",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"product-categories",
+										":slug"
+									],
+									"variable": [
+										{
+											"key": "slug",
+											"value": ""
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "updated product category",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "category_name",
+											"value": "Momo",
+											"type": "text"
+										},
+										{
+											"key": "parent_category",
+											"value": "Drink",
+											"type": "text"
+										},
+										{
+											"key": "category_image",
+											"type": "file",
+											"src": "/Users/hanciephago/Downloads/IMG_0643.jpg"
+										},
+										{
+											"key": "description",
+											"value": "My momo",
+											"type": "text"
+										},
+										{
+											"key": "bar",
+											"value": "1",
+											"type": "text"
+										},
+										{
+											"key": "_method",
+											"value": "put",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/admin/product-categories/:slug",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"product-categories",
+										":slug"
+									],
+									"variable": [
+										{
+											"key": "slug",
+											"value": ""
+										}
+									]
+								}
+							},
+							"response": []
 						}
 					]
+				},
+				{
+					"name": "Product Variation",
+					"item": [
+						{
+							"name": "store product variation",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "variation_name",
+											"value": "Masala Tea",
+											"type": "text"
+										},
+										{
+											"key": "description",
+											"value": "Masala Tea",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/admin/product-variations",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"product-variations"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get all product variation",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url}}/admin/product-variations?pagination_limit=2",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"product-variations"
+									],
+									"query": [
+										{
+											"key": "pagination_limit",
+											"value": "2"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "update product variation",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "variation_name",
+											"value": "Momo",
+											"type": "text"
+										},
+										{
+											"key": "description",
+											"value": "Steamed Momo",
+											"type": "text"
+										},
+										{
+											"key": "_method",
+											"value": "put",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/admin/product-variations/:product_id",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"product-variations",
+										":product_id"
+									],
+									"variable": [
+										{
+											"key": "product_id",
+											"value": ""
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "delete product variation",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/admin/product-variations/:product_id",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"product-variations",
+										":product_id"
+									],
+									"variable": [
+										{
+											"key": "product_id",
+											"value": ""
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiNWQ1NDk4ZjYwZDY2NTQ3MjliMWUyODZkMDdkZTZkMTYxY2RjMzc1ODMxYzkyNjFiNzQ5MGQ4YWRlZDEyYWYwMWIxYmE1MDRkNWQ2MmE2ODMiLCJpYXQiOjE2OTY5MzU1ODIuMTgxNjg5LCJuYmYiOjE2OTY5MzU1ODIuMTgxNjg5LCJleHAiOjE3Mjg1NTc5ODIuMTcyODExLCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.bAxt1pggzFsCuZf8RSvi7M02z1WZ0AzOC5G1f2b4Ao2e7lxeEBpBa-2tPxSHY_8LzQwe4w2vHKVTwhM_Ny2v0BRc2Ey0fM67WaGeV7ibzBhddpdkUe_ZaGh-XhNWVcKUPED3pR6rT2QYMYY7QZ-OFGwZD4-Hfp73g87YN7PzEIhVC5CBi7G1X7Mh5mhVO8cPE7yVvFtcJcQZV5twL1s1SNgl9HVPsHlDW-Wfkyx4noEPIi2KRNjw5Z-KuDuuIyiKkC-ZTnkIP__I-4ikjRT8IeaZ6Fvf_3A9XRbsRq2VsmPNwTGx_DyUYcYC28ckGNLypkG7CYuedW4U8Sux5mdxTtTZQfLZSlUt1qluxs31W3IgBFqlc2B7f2wS9PKU7Sm3zg26y-JR5J1vv7PxKZnzrIzudqL5JuW8k8Qe9_Kq6ixKmBhep8eJwTiDXNL8Zz_XSOT-A9faXPubJ5k_qJjtXcdGhZFChkBrsCZbUBx8-p6UIDpk3oa_tuKfLqmb4yrbPof2JbFiDZdTLAA6q_Tsf5If_nRsVyp-D7qVsXYwwAV0DxtdOSp2dSL2DP2XNCvmCFY3rWP0ncesMMtNQdnTS55ElPlCdrfwACqtlb3ZNkcAmDcf-nQ8co97c7x0zQfkYbeOlgtA7faMiEwV2eooAr7UAmCjfxROGb5sM1PJ7Z0",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
 				}
 			]
 		},
