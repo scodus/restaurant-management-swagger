@@ -22,7 +22,7 @@
     },
     "servers": [
         {
-            "url": "https://restaurant-admin-orcin.vercel.app/",
+            "url": "http://restro.knexperts.com/",
             "description": "server"
         }
     ]
