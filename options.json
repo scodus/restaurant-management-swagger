@@ -22,7 +22,7 @@
     },
     "servers": [
         {
-            "url": "http://restro.knexperts.com/",
+            "url": "https://restro.knexperts.com/",
             "description": "server"
         }
     ]

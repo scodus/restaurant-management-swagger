@@ -16,7 +16,7 @@ info:
     name: MIT
     url: https://es.wikipedia.org/wiki/Licencia_MIT
 servers:
-  - url: http://restro.knexperts.com/
+  - url: https://restro.knexperts.com/
     description: server
 tags:
   - name: Admin
