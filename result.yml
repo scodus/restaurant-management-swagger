@@ -24,6 +24,9 @@ tags:
   - name: Admin > User
   - name: Admin > Product Category
   - name: Admin > Product Variation
+  - name: Admin > Product
+  - name: Admin > Table
+  - name: Admin > Floor
   - name: Public
   - name: Public > Auth
 paths:
@@ -380,6 +383,299 @@ paths:
       summary: delete product variation
       parameters:
         - name: product_id
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /admin/products:
+    post:
+      tags:
+        - Admin > Product
+      summary: create product
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                product_name:
+                  type: string
+                  example: Momo
+                category_id:
+                  type: integer
+                  example: '1'
+                ingredient:
+                  type: string
+                  example: gffg
+                description:
+                  type: string
+                  example: fgfgfg
+                hasVariation:
+                  type: integer
+                  example: '1'
+                variation_name[]:
+                  type: string
+                  example: rtrt
+                price[]:
+                  type: integer
+                  example: '4545'
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    get:
+      tags:
+        - Admin > Product
+      summary: get all product
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /admin/products/momo-1:
+    post:
+      tags:
+        - Admin > Product
+      summary: update product
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                product_name:
+                  type: string
+                  example: Momo
+                category_id:
+                  type: integer
+                  example: '1'
+                ingredient:
+                  type: string
+                  example: Rice
+                description:
+                  type: string
+                  example: fgfgfg
+                hasVariation:
+                  type: integer
+                  example: '1'
+                variation_name[]:
+                  type: string
+                  example: Hancie
+                price[]:
+                  type: integer
+                  example: '72'
+                _method:
+                  type: string
+                  example: put
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /admin/products/{slug}:
+    delete:
+      tags:
+        - Admin > Product
+      summary: delete product
+      parameters:
+        - name: slug
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /admin/tables:
+    post:
+      tags:
+        - Admin > Table
+      summary: create table
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                table_number:
+                  type: string
+                  example: T11
+                description:
+                  type: string
+                  example: Table no t 11
+                table_capacity:
+                  type: integer
+                  example: '3'
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    get:
+      tags:
+        - Admin > Table
+      summary: get all table list
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /admin/tables/{id}:
+    post:
+      tags:
+        - Admin > Table
+      summary: update table data
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                table_number:
+                  type: string
+                  example: T10
+                description:
+                  type: string
+                  example: Table no t 10
+                table_capacity:
+                  type: integer
+                  example: '3'
+                _method:
+                  type: string
+                  example: put
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: id
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    delete:
+      tags:
+        - Admin > Table
+      summary: delete table
+      parameters:
+        - name: id
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /admin/floors:
+    post:
+      tags:
+        - Admin > Floor
+      summary: create floor
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                floor_name:
+                  type: string
+                  example: F2
+                description:
+                  type: string
+                  example: f1
+                table_numbers[]:
+                  type: integer
+                  example: '2'
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /admin/floors/{id}:
+    post:
+      tags:
+        - Admin > Floor
+      summary: update floor
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                floor_name:
+                  type: string
+                  example: F1
+                description:
+                  type: string
+                  example: f1
+                table_numbers[]:
+                  type: integer
+                  example: '11'
+                _method:
+                  type: string
+                  example: put
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: id
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    delete:
+      tags:
+        - Admin > Floor
+      summary: delete floor
+      parameters:
+        - name: id
           in: path
           schema:
             type: string
