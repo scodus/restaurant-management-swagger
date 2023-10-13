@@ -1014,7 +1014,7 @@
 										},
 										{
 											"key": "table_numbers[]",
-											"value": "11",
+											"value": "3",
 											"type": "text"
 										},
 										{
@@ -1064,6 +1064,159 @@
 											"key": "id",
 											"value": ""
 										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get all floor list",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url}}/admin/floors/",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"floors",
+										""
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Site Setting",
+					"item": [
+						{
+							"name": "create site setting",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "site_title",
+											"value": "Hotel Management System",
+											"type": "text"
+										},
+										{
+											"key": "phone_number",
+											"value": "",
+											"type": "text"
+										},
+										{
+											"key": "seconday_phone_number",
+											"value": "",
+											"type": "text"
+										},
+										{
+											"key": "address",
+											"value": "",
+											"type": "text"
+										},
+										{
+											"key": "primary_email",
+											"value": "",
+											"type": "text"
+										},
+										{
+											"key": "secondary_email",
+											"value": "",
+											"type": "text"
+										},
+										{
+											"key": "map_location",
+											"value": "",
+											"type": "text"
+										},
+										{
+											"key": "registration_number",
+											"value": "",
+											"type": "text"
+										},
+										{
+											"key": "facebook_url",
+											"value": "",
+											"type": "text"
+										},
+										{
+											"key": "twitter_url",
+											"value": "",
+											"type": "text"
+										},
+										{
+											"key": "linkedin_url",
+											"value": "",
+											"type": "text"
+										},
+										{
+											"key": "youtube_url",
+											"value": "",
+											"type": "text"
+										},
+										{
+											"key": "instagram_url",
+											"value": "",
+											"type": "text"
+										},
+										{
+											"key": "logo",
+											"type": "file",
+											"src": "/Users/hanciephago/Downloads/IMG_0643.jpg"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/admin/site-settings",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"site-settings"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get site setting data",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url}}/admin/site-settings",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"site-settings"
 									]
 								}
 							},

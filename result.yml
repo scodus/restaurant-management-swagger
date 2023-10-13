@@ -27,6 +27,7 @@ tags:
   - name: Admin > Product
   - name: Admin > Table
   - name: Admin > Floor
+  - name: Admin > Site Setting
   - name: Public
   - name: Public > Auth
 paths:
@@ -650,7 +651,7 @@ paths:
                   example: f1
                 table_numbers[]:
                   type: integer
-                  example: '11'
+                  example: '3'
                 _method:
                   type: string
                   example: put
@@ -680,6 +681,89 @@ paths:
           schema:
             type: string
           required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /admin/floors/:
+    get:
+      tags:
+        - Admin > Floor
+      summary: get all floor list
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /admin/site-settings:
+    post:
+      tags:
+        - Admin > Site Setting
+      summary: create site setting
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                site_title:
+                  type: string
+                  example: Hotel Management System
+                phone_number:
+                  type: string
+                seconday_phone_number:
+                  type: string
+                address:
+                  type: string
+                primary_email:
+                  type: string
+                secondary_email:
+                  type: string
+                map_location:
+                  type: string
+                registration_number:
+                  type: string
+                facebook_url:
+                  type: string
+                twitter_url:
+                  type: string
+                linkedin_url:
+                  type: string
+                youtube_url:
+                  type: string
+                instagram_url:
+                  type: string
+                logo:
+                  type: string
+                  format: binary
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    get:
+      tags:
+        - Admin > Site Setting
+      summary: get site setting data
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
       responses:
         '200':
           description: Successful response
