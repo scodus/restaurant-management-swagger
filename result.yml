@@ -18,6 +18,11 @@ info:
 servers:
   - url: https://restro.knexperts.com/
     description: server
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
 tags:
   - name: Admin
   - name: Admin > Customers
@@ -28,6 +33,7 @@ tags:
   - name: Admin > Table
   - name: Admin > Floor
   - name: Admin > Site Setting
+  - name: Admin > Payment Option
   - name: Public
   - name: Public > Auth
 paths:
@@ -54,6 +60,8 @@ paths:
                 address:
                   type: string
                   example: KTM
+      security:
+        - bearerAuth: []
       parameters:
         - name: Accept
           in: header
@@ -69,6 +77,12 @@ paths:
       tags:
         - Admin > Customers
       summary: get all customers
+      parameters:
+        - name: pagination_limit
+          in: query
+          schema:
+            type: integer
+          example: '5'
       responses:
         '200':
           description: Successful response
@@ -620,7 +634,7 @@ paths:
                   example: f1
                 table_numbers[]:
                   type: integer
-                  example: '2'
+                  example: '24'
       parameters:
         - name: Accept
           in: header
@@ -632,7 +646,7 @@ paths:
           description: Successful response
           content:
             application/json: {}
-  /admin/floors/{id}:
+  /admin/floors/1:
     post:
       tags:
         - Admin > Floor
@@ -661,16 +675,12 @@ paths:
           schema:
             type: string
           example: application/json
-        - name: id
-          in: path
-          schema:
-            type: string
-          required: true
       responses:
         '200':
           description: Successful response
           content:
             application/json: {}
+  /admin/floors/{id}:
     delete:
       tags:
         - Admin > Floor
@@ -764,6 +774,18 @@ paths:
           schema:
             type: string
           example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /admin/payment_options:
+    post:
+      tags:
+        - Admin > Payment Option
+      summary: create payment option
+      requestBody:
+        content: {}
       responses:
         '200':
           description: Successful response
