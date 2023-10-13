@@ -1,10 +1,10 @@
 {
 	"info": {
-		"_postman_id": "2c3f795f-6ea3-46f9-b9f6-8f64293b396c",
+		"_postman_id": "ee37f7bd-e03a-4d40-973e-b41ee99e309b",
 		"name": "Hotel Management",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "29583899",
-		"_collection_link": "https://nepal-commerce.postman.co/workspace/Scodus-Workspace~630496f0-e11e-435b-88ad-db2d0a326979/collection/29583899-2c3f795f-6ea3-46f9-b9f6-8f64293b396c?action=share&source=collection_link&creator=29583899"
+		"_exporter_id": "30047466",
+		"_collection_link": "https://nrna-team.postman.co/workspace/NRNA~0b0ccb09-1ac4-4aa4-9ef0-7b29f77c824e/collection/30047466-ee37f7bd-e03a-4d40-973e-b41ee99e309b?action=share&source=collection_link&creator=30047466"
 	},
 	"item": [
 		{
@@ -575,6 +575,501 @@
 							"response": []
 						}
 					]
+				},
+				{
+					"name": "Product",
+					"item": [
+						{
+							"name": "create product",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "product_name",
+											"value": "Momo",
+											"type": "text"
+										},
+										{
+											"key": "category_id",
+											"value": "1",
+											"type": "text"
+										},
+										{
+											"key": "ingredient",
+											"value": "gffg",
+											"type": "text"
+										},
+										{
+											"key": "description",
+											"value": "fgfgfg",
+											"type": "text"
+										},
+										{
+											"key": "hasVariation",
+											"value": "1",
+											"type": "text"
+										},
+										{
+											"key": "variation_name[]",
+											"value": "ffh",
+											"type": "text"
+										},
+										{
+											"key": "price[]",
+											"value": "445",
+											"type": "text"
+										},
+										{
+											"key": "variation_name[]",
+											"value": "rtrt",
+											"type": "text"
+										},
+										{
+											"key": "price[]",
+											"value": "4545",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/admin/products",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"products"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get all product",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/admin/products",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"products"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "update product",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "product_name",
+											"value": "Momo",
+											"type": "text"
+										},
+										{
+											"key": "category_id",
+											"value": "1",
+											"type": "text"
+										},
+										{
+											"key": "ingredient",
+											"value": "Rice",
+											"type": "text"
+										},
+										{
+											"key": "description",
+											"value": "fgfgfg",
+											"type": "text"
+										},
+										{
+											"key": "hasVariation",
+											"value": "1",
+											"type": "text"
+										},
+										{
+											"key": "variation_name[]",
+											"value": "Hancie",
+											"type": "text"
+										},
+										{
+											"key": "price[]",
+											"value": "728",
+											"type": "text"
+										},
+										{
+											"key": "variation_name[]",
+											"value": "Hancie",
+											"type": "text"
+										},
+										{
+											"key": "price[]",
+											"value": "72",
+											"type": "text"
+										},
+										{
+											"key": "_method",
+											"value": "put",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/admin/products/momo-1",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"products",
+										"momo-1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "delete product",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/admin/products/:slug",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"products",
+										":slug"
+									],
+									"variable": [
+										{
+											"key": "slug",
+											"value": ""
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Table",
+					"item": [
+						{
+							"name": "create table",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "table_number",
+											"value": "T11",
+											"type": "text"
+										},
+										{
+											"key": "description",
+											"value": "Table no t 11",
+											"type": "text"
+										},
+										{
+											"key": "table_capacity",
+											"value": "3",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/admin/tables",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"tables"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get all table list",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/admin/tables",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"tables"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "update table data",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "table_number",
+											"value": "T10",
+											"type": "text"
+										},
+										{
+											"key": "description",
+											"value": "Table no t 10",
+											"type": "text"
+										},
+										{
+											"key": "table_capacity",
+											"value": "3",
+											"type": "text"
+										},
+										{
+											"key": "_method",
+											"value": "put",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/admin/tables/:id",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"tables",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": ""
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "delete table",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/admin/tables/:id",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"tables",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": ""
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Floor",
+					"item": [
+						{
+							"name": "create floor",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "floor_name",
+											"value": "F2",
+											"type": "text"
+										},
+										{
+											"key": "description",
+											"value": "f1",
+											"type": "text"
+										},
+										{
+											"key": "table_numbers[]",
+											"value": "9",
+											"type": "text"
+										},
+										{
+											"key": "table_numbers[]",
+											"value": "2",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/admin/floors",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"floors"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "update floor",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "floor_name",
+											"value": "F1",
+											"type": "text"
+										},
+										{
+											"key": "description",
+											"value": "f1",
+											"type": "text"
+										},
+										{
+											"key": "table_numbers[]",
+											"value": "9",
+											"type": "text"
+										},
+										{
+											"key": "table_numbers[]",
+											"value": "10",
+											"type": "text"
+										},
+										{
+											"key": "table_numbers[]",
+											"value": "11",
+											"type": "text"
+										},
+										{
+											"key": "_method",
+											"value": "put",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/admin/floors/:id",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"floors",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": ""
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "delete floor",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/admin/floors/:id",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"floors",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": ""
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
 				}
 			],
 			"auth": {
@@ -582,7 +1077,7 @@
 				"bearer": [
 					{
 						"key": "token",
-						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiNWQ1NDk4ZjYwZDY2NTQ3MjliMWUyODZkMDdkZTZkMTYxY2RjMzc1ODMxYzkyNjFiNzQ5MGQ4YWRlZDEyYWYwMWIxYmE1MDRkNWQ2MmE2ODMiLCJpYXQiOjE2OTY5MzU1ODIuMTgxNjg5LCJuYmYiOjE2OTY5MzU1ODIuMTgxNjg5LCJleHAiOjE3Mjg1NTc5ODIuMTcyODExLCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.bAxt1pggzFsCuZf8RSvi7M02z1WZ0AzOC5G1f2b4Ao2e7lxeEBpBa-2tPxSHY_8LzQwe4w2vHKVTwhM_Ny2v0BRc2Ey0fM67WaGeV7ibzBhddpdkUe_ZaGh-XhNWVcKUPED3pR6rT2QYMYY7QZ-OFGwZD4-Hfp73g87YN7PzEIhVC5CBi7G1X7Mh5mhVO8cPE7yVvFtcJcQZV5twL1s1SNgl9HVPsHlDW-Wfkyx4noEPIi2KRNjw5Z-KuDuuIyiKkC-ZTnkIP__I-4ikjRT8IeaZ6Fvf_3A9XRbsRq2VsmPNwTGx_DyUYcYC28ckGNLypkG7CYuedW4U8Sux5mdxTtTZQfLZSlUt1qluxs31W3IgBFqlc2B7f2wS9PKU7Sm3zg26y-JR5J1vv7PxKZnzrIzudqL5JuW8k8Qe9_Kq6ixKmBhep8eJwTiDXNL8Zz_XSOT-A9faXPubJ5k_qJjtXcdGhZFChkBrsCZbUBx8-p6UIDpk3oa_tuKfLqmb4yrbPof2JbFiDZdTLAA6q_Tsf5If_nRsVyp-D7qVsXYwwAV0DxtdOSp2dSL2DP2XNCvmCFY3rWP0ncesMMtNQdnTS55ElPlCdrfwACqtlb3ZNkcAmDcf-nQ8co97c7x0zQfkYbeOlgtA7faMiEwV2eooAr7UAmCjfxROGb5sM1PJ7Z0",
+						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiYzI0NjM2YjMwZGZiZGRiM2RkZDE3NTM5ZjYzZGRmYTIxOTY1MGJmYzI1NWI4NDY0YTcwOTViZTYwMDkzMTNkYzU2NDFmYjYyMWI1ZTY0ZmUiLCJpYXQiOjE2OTcwMjMxMTAuNzYwNTIxLCJuYmYiOjE2OTcwMjMxMTAuNzYwNTIyLCJleHAiOjE3Mjg2NDU1MTAuNzU3MDUyLCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.ab8CiKNbK9oU7eHEIV-tNC3D3wTsdA6oESiWEvyWSlFsvkF7oIQr8AcoLKcu_a5A6GGFQoqzJCpiUzFx5ofe2vFF7KDNUKMVv4xJqzIgfATiGtWyj9SjGr8bG2sGuw3ZGMZfc8mjUaRYvp6NVPLJq4jYzvHXTvm-1vtDx0g13aqDWhFgnnJdWn6rIicK-R1gcnnnsI_c1kwvj4Go8YJZMYEvUHDnIzWeOY7HeTV56DyeCbMyGofgG2pw7b0l5M78P2dRr9FVaS74eJ78ClGluimbmdyvFK9iR2GIlJOEOQ6GyJiUcjeHPTvzXPSadv64dhIxxFw7E4oni_-LdoXb3zTGqHknBk7uFzlkmLQnMv55TE2tO4hDjkgt4MQfOcvSn7r5a7j2wU7i62wVu36XkA_2yD7--LagEw93FZQhArJcMmlQRb-gi-oBxjmHr-Zrsxj79Gh37ElxoNevqMGNBL_eqhCeDDrLGLxKWJr4UFEO8zrY3TExD3QoMcsHocyo3utP0X11TClP6n_ZtW5tL9IBGzTlsVaJs0ex0UhV0iMtx5EkNYycmzcMh2LWswzFyFP_CR9_A8lKz6FRO521-qpyqv9VisWsjbkhPluiYEc37WIEx4MYj2aWWG6qk5IQI9RM6uGuqg7PeqsoHGMUvN2hYneo4wEhKdtmdYJCuik",
 						"type": "string"
 					}
 				]
