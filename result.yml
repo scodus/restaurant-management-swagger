@@ -16,7 +16,7 @@ info:
     name: MIT
     url: https://es.wikipedia.org/wiki/Licencia_MIT
 servers:
-  - url: https://restaurant-admin-orcin.vercel.app/
+  - url: http://restro.knexperts.com/
     description: server
 tags:
   - name: Admin
