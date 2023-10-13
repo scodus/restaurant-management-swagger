@@ -16,6 +16,16 @@
 						{
 							"name": "create customer account",
 							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
 								"method": "POST",
 								"header": [
 									{
@@ -68,13 +78,19 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{url}}/admin/customers",
+									"raw": "{{url}}/admin/customers?pagination_limit=5",
 									"host": [
 										"{{url}}"
 									],
 									"path": [
 										"admin",
 										"customers"
+									],
+									"query": [
+										{
+											"key": "pagination_limit",
+											"value": "5"
+										}
 									]
 								}
 							},
@@ -955,12 +971,12 @@
 										},
 										{
 											"key": "table_numbers[]",
-											"value": "9",
+											"value": "1",
 											"type": "text"
 										},
 										{
 											"key": "table_numbers[]",
-											"value": "2",
+											"value": "24",
 											"type": "text"
 										}
 									]
@@ -1025,20 +1041,14 @@
 									]
 								},
 								"url": {
-									"raw": "{{url}}/admin/floors/:id",
+									"raw": "{{url}}/admin/floors/1",
 									"host": [
 										"{{url}}"
 									],
 									"path": [
 										"admin",
 										"floors",
-										":id"
-									],
-									"variable": [
-										{
-											"key": "id",
-											"value": ""
-										}
+										"1"
 									]
 								}
 							},
@@ -1223,6 +1233,29 @@
 							"response": []
 						}
 					]
+				},
+				{
+					"name": "Payment Option",
+					"item": [
+						{
+							"name": "create payment option",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/admin/payment_options",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"payment_options"
+									]
+								}
+							},
+							"response": []
+						}
+					]
 				}
 			],
 			"auth": {
@@ -1230,7 +1263,7 @@
 				"bearer": [
 					{
 						"key": "token",
-						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiYzI0NjM2YjMwZGZiZGRiM2RkZDE3NTM5ZjYzZGRmYTIxOTY1MGJmYzI1NWI4NDY0YTcwOTViZTYwMDkzMTNkYzU2NDFmYjYyMWI1ZTY0ZmUiLCJpYXQiOjE2OTcwMjMxMTAuNzYwNTIxLCJuYmYiOjE2OTcwMjMxMTAuNzYwNTIyLCJleHAiOjE3Mjg2NDU1MTAuNzU3MDUyLCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.ab8CiKNbK9oU7eHEIV-tNC3D3wTsdA6oESiWEvyWSlFsvkF7oIQr8AcoLKcu_a5A6GGFQoqzJCpiUzFx5ofe2vFF7KDNUKMVv4xJqzIgfATiGtWyj9SjGr8bG2sGuw3ZGMZfc8mjUaRYvp6NVPLJq4jYzvHXTvm-1vtDx0g13aqDWhFgnnJdWn6rIicK-R1gcnnnsI_c1kwvj4Go8YJZMYEvUHDnIzWeOY7HeTV56DyeCbMyGofgG2pw7b0l5M78P2dRr9FVaS74eJ78ClGluimbmdyvFK9iR2GIlJOEOQ6GyJiUcjeHPTvzXPSadv64dhIxxFw7E4oni_-LdoXb3zTGqHknBk7uFzlkmLQnMv55TE2tO4hDjkgt4MQfOcvSn7r5a7j2wU7i62wVu36XkA_2yD7--LagEw93FZQhArJcMmlQRb-gi-oBxjmHr-Zrsxj79Gh37ElxoNevqMGNBL_eqhCeDDrLGLxKWJr4UFEO8zrY3TExD3QoMcsHocyo3utP0X11TClP6n_ZtW5tL9IBGzTlsVaJs0ex0UhV0iMtx5EkNYycmzcMh2LWswzFyFP_CR9_A8lKz6FRO521-qpyqv9VisWsjbkhPluiYEc37WIEx4MYj2aWWG6qk5IQI9RM6uGuqg7PeqsoHGMUvN2hYneo4wEhKdtmdYJCuik",
+						"value": "{{token}}",
 						"type": "string"
 					}
 				]
