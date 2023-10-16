@@ -1241,7 +1241,28 @@
 							"name": "create payment option",
 							"request": {
 								"method": "POST",
-								"header": [],
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "payment_name",
+											"value": "ImePay",
+											"type": "text"
+										},
+										{
+											"key": "payment_image",
+											"type": "file",
+											"src": "/Users/hanciephago/Downloads/IMG_0643.jpg"
+										}
+									]
+								},
 								"url": {
 									"raw": "{{url}}/admin/payment_options",
 									"host": [
@@ -1250,6 +1271,94 @@
 									"path": [
 										"admin",
 										"payment_options"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get all payment options",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/admin/payment_options?pagination_limit=2",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"payment_options"
+									],
+									"query": [
+										{
+											"key": "pagination_limit",
+											"value": "2"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "delete payment options",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/admin/payment_options/imepay",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"payment_options",
+										"imepay"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "update payment option",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "payment_name",
+											"value": "khalti",
+											"type": "text"
+										},
+										{
+											"key": "payment_image",
+											"type": "file",
+											"src": "/Users/hanciephago/Downloads/IMG_3015.jpg"
+										},
+										{
+											"key": "_method",
+											"value": "put",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/admin/payment_options/khalti",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"payment_options",
+										"khalti"
 									]
 								}
 							},

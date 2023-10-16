@@ -785,7 +785,79 @@ paths:
         - Admin > Payment Option
       summary: create payment option
       requestBody:
-        content: {}
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                payment_name:
+                  type: string
+                  example: ImePay
+                payment_image:
+                  type: string
+                  format: binary
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    get:
+      tags:
+        - Admin > Payment Option
+      summary: get all payment options
+      parameters:
+        - name: pagination_limit
+          in: query
+          schema:
+            type: integer
+          example: '2'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /admin/payment_options/imepay:
+    delete:
+      tags:
+        - Admin > Payment Option
+      summary: delete payment options
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /admin/payment_options/khalti:
+    post:
+      tags:
+        - Admin > Payment Option
+      summary: update payment option
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                payment_name:
+                  type: string
+                  example: khalti
+                payment_image:
+                  type: string
+                  format: binary
+                _method:
+                  type: string
+                  example: put
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
       responses:
         '200':
           description: Successful response
