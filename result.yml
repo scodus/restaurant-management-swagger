@@ -36,6 +36,7 @@ tags:
   - name: Admin > Payment Option
   - name: Admin > PickUp Users
   - name: Admin > Order
+  - name: Admin > Parent Category
   - name: Public
   - name: Public > Auth
 paths:
@@ -198,9 +199,9 @@ paths:
                 category_name:
                   type: string
                   example: Momo
-                parent_category:
-                  type: string
-                  example: Foods
+                parent_category_id:
+                  type: integer
+                  example: '1'
                 description:
                   type: string
                   example: My momo
@@ -266,6 +267,7 @@ paths:
           description: Successful response
           content:
             application/json: {}
+  /admin/product-categories/momo:
     post:
       tags:
         - Admin > Product Category
@@ -279,9 +281,9 @@ paths:
                 category_name:
                   type: string
                   example: Momo
-                parent_category:
-                  type: string
-                  example: Drink
+                parent_category_id:
+                  type: integer
+                  example: '2'
                 category_image:
                   type: string
                   format: binary
@@ -300,11 +302,6 @@ paths:
           schema:
             type: string
           example: application/json
-        - name: slug
-          in: path
-          schema:
-            type: string
-          required: true
       responses:
         '200':
           description: Successful response
@@ -421,7 +418,7 @@ paths:
               type: object
               example:
                 product_name: Momo
-                category_id: 1
+                product_category_id: 1
                 ingredient: gffg
                 description: fgfgfg
                 hasVariation: 1
@@ -451,7 +448,7 @@ paths:
           description: Successful response
           content:
             application/json: {}
-  /admin/products/momo-1:
+  /admin/products/{slug}:
     post:
       tags:
         - Admin > Product
@@ -465,7 +462,7 @@ paths:
                 product_name:
                   type: string
                   example: Momo
-                category_id:
+                parent_category_id:
                   type: integer
                   example: '1'
                 ingredient:
@@ -492,12 +489,16 @@ paths:
           schema:
             type: string
           example: application/json
+        - name: slug
+          in: path
+          schema:
+            type: string
+          required: true
       responses:
         '200':
           description: Successful response
           content:
             application/json: {}
-  /admin/products/{slug}:
     delete:
       tags:
         - Admin > Product
@@ -989,6 +990,127 @@ paths:
           schema:
             type: string
           example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /admin/orders/9:
+    post:
+      tags:
+        - Admin > Order
+      summary: edit order
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                table_id: 1
+                customer_id: 2
+                pickup_user_id: 2
+                description: Momo
+                _method: put
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /admin/parent-categories:
+    post:
+      tags:
+        - Admin > Parent Category
+      summary: create parent category
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                parent_category_name:
+                  type: string
+                  example: Food
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    get:
+      tags:
+        - Admin > Parent Category
+      summary: get all parent category
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: pagination_limit
+          in: query
+          schema:
+            type: integer
+          example: '1'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /admin/parent-categories/{id}:
+    post:
+      tags:
+        - Admin > Parent Category
+      summary: update parent category
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                parent_category_name:
+                  type: string
+                  example: Drink
+                _method:
+                  type: string
+                  example: put
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: id
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    delete:
+      tags:
+        - Admin > Parent Category
+      summary: delete parent category
+      parameters:
+        - name: id
+          in: path
+          schema:
+            type: string
+          required: true
       responses:
         '200':
           description: Successful response

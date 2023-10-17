@@ -266,8 +266,8 @@
 											"type": "text"
 										},
 										{
-											"key": "parent_category",
-											"value": "Foods",
+											"key": "parent_category_id",
+											"value": "1",
 											"type": "text"
 										},
 										{
@@ -394,8 +394,8 @@
 											"type": "text"
 										},
 										{
-											"key": "parent_category",
-											"value": "Drink",
+											"key": "parent_category_id",
+											"value": "2",
 											"type": "text"
 										},
 										{
@@ -421,20 +421,14 @@
 									]
 								},
 								"url": {
-									"raw": "{{url}}/admin/product-categories/:slug",
+									"raw": "{{url}}/admin/product-categories/momo",
 									"host": [
 										"{{url}}"
 									],
 									"path": [
 										"admin",
 										"product-categories",
-										":slug"
-									],
-									"variable": [
-										{
-											"key": "slug",
-											"value": ""
-										}
+										"momo"
 									]
 								}
 							},
@@ -608,7 +602,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n\n\"product_name\":\"Momo\",\n\"category_id\":1,\n\"ingredient\":\"gffg\",\n\"description\":\"fgfgfg\",\n\"hasVariation\":1,\n\"variations\":[\n    {\n        \"variation_name\": \"Variation 1\",\n        \"price\": 100\n    },\n    {\n        \"variation_name\": \"Variation 2\",\n        \"price\": 200\n    }\n\n],\n\"base_price\":550\n}",
+									"raw": "{\n\n\"product_name\":\"Momo\",\n\"product_category_id\":1,\n\"ingredient\":\"gffg\",\n\"description\":\"fgfgfg\",\n\"hasVariation\":1,\n\"variations\":[\n    {\n        \"variation_name\": \"Variation 1\",\n        \"price\": 100\n    },\n    {\n        \"variation_name\": \"Variation 2\",\n        \"price\": 200\n    }\n\n],\n\"base_price\":550\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -666,7 +660,7 @@
 											"type": "text"
 										},
 										{
-											"key": "category_id",
+											"key": "parent_category_id",
 											"value": "1",
 											"type": "text"
 										},
@@ -713,14 +707,20 @@
 									]
 								},
 								"url": {
-									"raw": "{{url}}/admin/products/momo-1",
+									"raw": "{{url}}/admin/products/:slug",
 									"host": [
 										"{{url}}"
 									],
 									"path": [
 										"admin",
 										"products",
-										"momo-1"
+										":slug"
+									],
+									"variable": [
+										{
+											"key": "slug",
+											"value": ""
+										}
 									]
 								}
 							},
@@ -1520,6 +1520,204 @@
 									"path": [
 										"admin",
 										"orders"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "edit order",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n     \"table_id\":1,\n    \"customer_id\":2,\n    \"pickup_user_id\":2,\n    \"description\":\"Momo\",\n    \"_method\":\"put\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/admin/orders/9",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"orders",
+										"9"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Parent Category",
+					"item": [
+						{
+							"name": "create parent category",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "parent_category_name",
+											"value": "Food",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/admin/parent-categories",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"parent-categories"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get all parent category",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/admin/parent-categories?pagination_limit=1",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"parent-categories"
+									],
+									"query": [
+										{
+											"key": "pagination_limit",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "update parent category",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "parent_category_name",
+											"value": "Drink",
+											"type": "text"
+										},
+										{
+											"key": "_method",
+											"value": "put",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/admin/parent-categories/:id",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"parent-categories",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": ""
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "delete parent category",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/admin/parent-categories/:id",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"parent-categories",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": ""
+										}
 									]
 								}
 							},
