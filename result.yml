@@ -34,6 +34,8 @@ tags:
   - name: Admin > Floor
   - name: Admin > Site Setting
   - name: Admin > Payment Option
+  - name: Admin > PickUp Users
+  - name: Admin > Order
   - name: Public
   - name: Public > Auth
 paths:
@@ -414,31 +416,21 @@ paths:
       summary: create product
       requestBody:
         content:
-          multipart/form-data:
+          application/json:
             schema:
               type: object
-              properties:
-                product_name:
-                  type: string
-                  example: Momo
-                category_id:
-                  type: integer
-                  example: '1'
-                ingredient:
-                  type: string
-                  example: gffg
-                description:
-                  type: string
-                  example: fgfgfg
-                hasVariation:
-                  type: integer
-                  example: '1'
-                variation_name[]:
-                  type: string
-                  example: rtrt
-                price[]:
-                  type: integer
-                  example: '4545'
+              example:
+                product_name: Momo
+                category_id: 1
+                ingredient: gffg
+                description: fgfgfg
+                hasVariation: 1
+                variations:
+                  - variation_name: Variation 1
+                    price: 100
+                  - variation_name: Variation 2
+                    price: 200
+                base_price: 550
       parameters:
         - name: Accept
           in: header
@@ -852,6 +844,145 @@ paths:
                 _method:
                   type: string
                   example: put
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /admin/pickup-users:
+    post:
+      tags:
+        - Admin > PickUp Users
+      summary: create pickup users
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                full_name:
+                  type: string
+                  example: Nitesh Hamal
+                mobile_no:
+                  type: integer
+                  example: '9813371345'
+                location:
+                  type: string
+                  example: Shankamul
+                time:
+                  type: string
+                  example: '2023-10-16 09:12:00'
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    get:
+      tags:
+        - Admin > PickUp Users
+      summary: get all pick up user
+      parameters:
+        - name: pagination_limit
+          in: query
+          schema:
+            type: integer
+          example: '2'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /admin/pickup-users/{id}:
+    delete:
+      tags:
+        - Admin > PickUp Users
+      summary: delete pickup user
+      parameters:
+        - name: id
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    post:
+      tags:
+        - Admin > PickUp Users
+      summary: update pickup user
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                full_name:
+                  type: string
+                  example: Pravesh Rai
+                mobile_no:
+                  type: integer
+                  example: '9813371345'
+                location:
+                  type: string
+                  example: Shankamul
+                time:
+                  type: string
+                  example: '2023-10-16 09:12:00'
+                _method:
+                  type: string
+                  example: put
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: id
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /admin/orders:
+    post:
+      tags:
+        - Admin > Order
+      summary: create order
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                table_id: 1
+                customer_id: 1
+                pickup_user_id: 1
+                description: ab cd ef gh
+                productDetails:
+                  - product_variation_id: 1
+                    price: 100
+                    quantity: 5
+                  - product_variation_id: 1
+                    price: 150
+                    quantity: 2
       parameters:
         - name: Accept
           in: header

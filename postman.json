@@ -607,54 +607,13 @@
 									}
 								],
 								"body": {
-									"mode": "formdata",
-									"formdata": [
-										{
-											"key": "product_name",
-											"value": "Momo",
-											"type": "text"
-										},
-										{
-											"key": "category_id",
-											"value": "1",
-											"type": "text"
-										},
-										{
-											"key": "ingredient",
-											"value": "gffg",
-											"type": "text"
-										},
-										{
-											"key": "description",
-											"value": "fgfgfg",
-											"type": "text"
-										},
-										{
-											"key": "hasVariation",
-											"value": "1",
-											"type": "text"
-										},
-										{
-											"key": "variation_name[]",
-											"value": "ffh",
-											"type": "text"
-										},
-										{
-											"key": "price[]",
-											"value": "445",
-											"type": "text"
-										},
-										{
-											"key": "variation_name[]",
-											"value": "rtrt",
-											"type": "text"
-										},
-										{
-											"key": "price[]",
-											"value": "4545",
-											"type": "text"
+									"mode": "raw",
+									"raw": "{\n\n\"product_name\":\"Momo\",\n\"category_id\":1,\n\"ingredient\":\"gffg\",\n\"description\":\"fgfgfg\",\n\"hasVariation\":1,\n\"variations\":[\n    {\n        \"variation_name\": \"Variation 1\",\n        \"price\": 100\n    },\n    {\n        \"variation_name\": \"Variation 2\",\n        \"price\": 200\n    }\n\n],\n\"base_price\":550\n}",
+									"options": {
+										"raw": {
+											"language": "json"
 										}
-									]
+									}
 								},
 								"url": {
 									"raw": "{{url}}/admin/products",
@@ -1359,6 +1318,208 @@
 										"admin",
 										"payment_options",
 										"khalti"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "PickUp Users",
+					"item": [
+						{
+							"name": "create pickup users",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "full_name",
+											"value": "Nitesh Hamal",
+											"type": "text"
+										},
+										{
+											"key": "mobile_no",
+											"value": "9813371345",
+											"type": "text"
+										},
+										{
+											"key": "location",
+											"value": "Shankamul",
+											"type": "text"
+										},
+										{
+											"key": "time",
+											"value": "2023-10-16 09:12:00",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/admin/pickup-users",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"pickup-users"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get all pick up user",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/admin/pickup-users?pagination_limit=2",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"pickup-users"
+									],
+									"query": [
+										{
+											"key": "pagination_limit",
+											"value": "2"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "delete pickup user",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/admin/pickup-users/:id",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"pickup-users",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": ""
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "update pickup user",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "full_name",
+											"value": "Pravesh Rai",
+											"type": "text"
+										},
+										{
+											"key": "mobile_no",
+											"value": "9813371345",
+											"type": "text"
+										},
+										{
+											"key": "location",
+											"value": "Shankamul",
+											"type": "text"
+										},
+										{
+											"key": "time",
+											"value": "2023-10-16 09:12:00",
+											"type": "text"
+										},
+										{
+											"key": "_method",
+											"value": "put",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/admin/pickup-users/:id",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"pickup-users",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": ""
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Order",
+					"item": [
+						{
+							"name": "create order",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"table_id\":1,\n    \"customer_id\":1,\n    \"pickup_user_id\":1,\n    \"description\":\"ab cd ef gh\",\n    \"productDetails\":[\n        {\n            \"product_variation_id\":1,\n            \"price\":100,\n            \"quantity\":5\n\n        },\n         {\n            \"product_variation_id\":1,\n            \"price\":150,\n            \"quantity\":2\n\n        }\n    ]\n\n\n\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/admin/orders",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"orders"
 									]
 								}
 							},
