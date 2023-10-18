@@ -240,6 +240,85 @@
 								}
 							},
 							"response": []
+						},
+						{
+							"name": "get all user",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/admin/users?pagination_limit=1",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"users"
+									],
+									"query": [
+										{
+											"key": "pagination_limit",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "change user password",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "current_password",
+											"value": "12656566",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "password",
+											"type": "text"
+										},
+										{
+											"key": "password_confirmation",
+											"value": "password",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/admin/users/change-password",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"users",
+										"change-password"
+									]
+								}
+							},
+							"response": []
 						}
 					]
 				},
@@ -1505,7 +1584,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"table_id\":1,\n    \"customer_id\":1,\n    \"pickup_user_id\":1,\n    \"description\":\"ab cd ef gh\",\n    \"productDetails\":[\n        {\n            \"product_variation_id\":1,\n            \"price\":100,\n            \"quantity\":5\n\n        },\n         {\n            \"product_variation_id\":1,\n            \"price\":150,\n            \"quantity\":2\n\n        }\n    ]\n\n\n\n}",
+									"raw": "{\n    \"table_id\":1,\n    \"customer_id\":1,\n    \"pickup_user_id\":1,\n    \"description\":\"ab cd ef gh\",\n    \"productDetails\":[\n        {\n            \"product_variation_id\":1,\n            \"price\":100,\n            \"quantity\":5\n\n        },\n         {\n            \"product_variation_id\":2,\n            \"price\":150,\n            \"quantity\":2\n\n        }\n    ]\n\n\n\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -1558,84 +1637,74 @@
 								}
 							},
 							"response": []
-						}
-					]
-				},
-				{
-					"name": "Parent Category",
-					"item": [
+						},
 						{
-							"name": "create parent category",
+							"name": "delete order",
 							"request": {
-								"auth": {
-									"type": "bearer",
-									"bearer": [
-										{
-											"key": "token",
-											"value": "{{token}}",
-											"type": "string"
-										}
-									]
-								},
-								"method": "POST",
-								"header": [
-									{
-										"key": "Accept",
-										"value": "application/json",
-										"type": "text"
-									}
-								],
-								"body": {
-									"mode": "formdata",
-									"formdata": [
-										{
-											"key": "parent_category_name",
-											"value": "Food",
-											"type": "text"
-										}
-									]
-								},
+								"method": "DELETE",
+								"header": [],
 								"url": {
-									"raw": "{{url}}/admin/parent-categories",
+									"raw": "{{url}}/admin/orders/2",
 									"host": [
 										"{{url}}"
 									],
 									"path": [
 										"admin",
-										"parent-categories"
+										"orders",
+										"2"
 									]
 								}
 							},
 							"response": []
 						},
 						{
-							"name": "get all parent category",
+							"name": "get all order list",
 							"request": {
-								"auth": {
-									"type": "bearer",
-									"bearer": [
-										{
-											"key": "token",
-											"value": "{{token}}",
-											"type": "string"
-										}
-									]
-								},
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{url}}/admin/parent-categories?pagination_limit=1",
+									"raw": "{{url}}/admin/orders?pagination_limit=2",
 									"host": [
 										"{{url}}"
 									],
 									"path": [
 										"admin",
-										"parent-categories"
+										"orders"
 									],
 									"query": [
 										{
 											"key": "pagination_limit",
-											"value": "1"
+											"value": "2"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Order Details",
+					"item": [
+						{
+							"name": "delete order details",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/admin/order-details/:id",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"order-details",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": ""
 										}
 									]
 								}
@@ -1643,18 +1712,8 @@
 							"response": []
 						},
 						{
-							"name": "update parent category",
+							"name": "update order details",
 							"request": {
-								"auth": {
-									"type": "bearer",
-									"bearer": [
-										{
-											"key": "token",
-											"value": "{{token}}",
-											"type": "string"
-										}
-									]
-								},
 								"method": "POST",
 								"header": [
 									{
@@ -1667,8 +1726,8 @@
 									"mode": "formdata",
 									"formdata": [
 										{
-											"key": "parent_category_name",
-											"value": "Drink",
+											"key": "product_variation_id",
+											"value": "2",
 											"type": "text"
 										},
 										{
@@ -1679,45 +1738,14 @@
 									]
 								},
 								"url": {
-									"raw": "{{url}}/admin/parent-categories/:id",
+									"raw": "{{url}}/admin/order-details/6",
 									"host": [
 										"{{url}}"
 									],
 									"path": [
 										"admin",
-										"parent-categories",
-										":id"
-									],
-									"variable": [
-										{
-											"key": "id",
-											"value": ""
-										}
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "delete parent category",
-							"request": {
-								"method": "DELETE",
-								"header": [],
-								"url": {
-									"raw": "{{url}}/admin/parent-categories/:id",
-									"host": [
-										"{{url}}"
-									],
-									"path": [
-										"admin",
-										"parent-categories",
-										":id"
-									],
-									"variable": [
-										{
-											"key": "id",
-											"value": ""
-										}
+										"order-details",
+										"6"
 									]
 								}
 							},
