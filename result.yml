@@ -469,7 +469,7 @@ paths:
                 product_category_id: 1
                 ingredient: gffg
                 description: fgfgfg
-                hasVariation: 1
+                has_variation: 1
                 variations:
                   - variation_name: Variation 1
                     price: 100
@@ -491,62 +491,53 @@ paths:
       tags:
         - Admin > Product
       summary: get all product
-      responses:
-        '200':
-          description: Successful response
-          content:
-            application/json: {}
-  /admin/products/{slug}:
-    post:
-      tags:
-        - Admin > Product
-      summary: update product
-      requestBody:
-        content:
-          multipart/form-data:
-            schema:
-              type: object
-              properties:
-                product_name:
-                  type: string
-                  example: Momo
-                parent_category_id:
-                  type: integer
-                  example: '1'
-                ingredient:
-                  type: string
-                  example: Rice
-                description:
-                  type: string
-                  example: fgfgfg
-                hasVariation:
-                  type: integer
-                  example: '1'
-                variation_name[]:
-                  type: string
-                  example: Hancie
-                price[]:
-                  type: integer
-                  example: '72'
-                _method:
-                  type: string
-                  example: put
       parameters:
         - name: Accept
           in: header
           schema:
             type: string
           example: application/json
-        - name: slug
-          in: path
-          schema:
-            type: string
-          required: true
       responses:
         '200':
           description: Successful response
           content:
             application/json: {}
+  /admin/products/momo:
+    post:
+      tags:
+        - Admin > Product
+      summary: update product
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                product_name: Momo
+                product_category_id: 1
+                ingredient: gffg
+                description: fgfgfg
+                has_variation: 1
+                variations:
+                  - id: 22
+                    variation_name: Steam 5
+                    price: 200
+                  - variation_name: '2'
+                    price: 200
+                base_price: 550
+                _method: put
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /admin/products/{slug}:
     delete:
       tags:
         - Admin > Product
@@ -641,16 +632,11 @@ paths:
           description: Successful response
           content:
             application/json: {}
+  /admin/tables/1:
     delete:
       tags:
         - Admin > Table
       summary: delete table
-      parameters:
-        - name: id
-          in: path
-          schema:
-            type: string
-          required: true
       responses:
         '200':
           description: Successful response
