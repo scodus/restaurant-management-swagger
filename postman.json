@@ -681,7 +681,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n\n\"product_name\":\"Momo\",\n\"product_category_id\":1,\n\"ingredient\":\"gffg\",\n\"description\":\"fgfgfg\",\n\"hasVariation\":1,\n\"variations\":[\n    {\n        \"variation_name\": \"Variation 1\",\n        \"price\": 100\n    },\n    {\n        \"variation_name\": \"Variation 2\",\n        \"price\": 200\n    }\n\n],\n\"base_price\":550\n}",
+									"raw": "{\n\n\"product_name\":\"Momo\",\n\"product_category_id\":1,\n\"ingredient\":\"gffg\",\n\"description\":\"fgfgfg\",\n\"has_variation\":1,\n\n\"variations\":[\n    {\n        \"variation_name\": \"Variation 1\",\n        \"price\": 100\n    },\n    {\n        \"variation_name\": \"Variation 2\",\n        \"price\": 200\n    }\n\n],\n\"base_price\":550\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -705,7 +705,13 @@
 							"name": "get all product",
 							"request": {
 								"method": "GET",
-								"header": [],
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
 								"url": {
 									"raw": "{{url}}/admin/products",
 									"host": [
@@ -731,75 +737,23 @@
 									}
 								],
 								"body": {
-									"mode": "formdata",
-									"formdata": [
-										{
-											"key": "product_name",
-											"value": "Momo",
-											"type": "text"
-										},
-										{
-											"key": "parent_category_id",
-											"value": "1",
-											"type": "text"
-										},
-										{
-											"key": "ingredient",
-											"value": "Rice",
-											"type": "text"
-										},
-										{
-											"key": "description",
-											"value": "fgfgfg",
-											"type": "text"
-										},
-										{
-											"key": "hasVariation",
-											"value": "1",
-											"type": "text"
-										},
-										{
-											"key": "variation_name[]",
-											"value": "Hancie",
-											"type": "text"
-										},
-										{
-											"key": "price[]",
-											"value": "728",
-											"type": "text"
-										},
-										{
-											"key": "variation_name[]",
-											"value": "Hancie",
-											"type": "text"
-										},
-										{
-											"key": "price[]",
-											"value": "72",
-											"type": "text"
-										},
-										{
-											"key": "_method",
-											"value": "put",
-											"type": "text"
+									"mode": "raw",
+									"raw": "{\n\n\"product_name\":\"Momo\",\n\"product_category_id\":1,\n\"ingredient\":\"gffg\",\n\"description\":\"fgfgfg\",\n\"has_variation\":1,\n\n\"variations\":[\n    {\n        \"id\":22,\n        \"variation_name\": \"Steam 5\",\n        \"price\": 200\n    },\n    {\n        \n        \"variation_name\": \"2\",\n        \"price\": 200\n    }\n\n],\n\"base_price\":550,\n\"_method\":\"put\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
 										}
-									]
+									}
 								},
 								"url": {
-									"raw": "{{url}}/admin/products/:slug",
+									"raw": "{{url}}/admin/products/momo",
 									"host": [
 										"{{url}}"
 									],
 									"path": [
 										"admin",
 										"products",
-										":slug"
-									],
-									"variable": [
-										{
-											"key": "slug",
-											"value": ""
-										}
+										"momo"
 									]
 								}
 							},
@@ -959,20 +913,14 @@
 								"method": "DELETE",
 								"header": [],
 								"url": {
-									"raw": "{{url}}/admin/tables/:id",
+									"raw": "{{url}}/admin/tables/1",
 									"host": [
 										"{{url}}"
 									],
 									"path": [
 										"admin",
 										"tables",
-										":id"
-									],
-									"variable": [
-										{
-											"key": "id",
-											"value": ""
-										}
+										"1"
 									]
 								}
 							},
