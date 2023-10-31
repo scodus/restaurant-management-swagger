@@ -1783,14 +1783,20 @@
 									}
 								},
 								"url": {
-									"raw": "{{url}}/admin/orders/9",
+									"raw": "{{url}}/admin/orders/:id",
 									"host": [
 										"{{url}}"
 									],
 									"path": [
 										"admin",
 										"orders",
-										"9"
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": ""
+										}
 									]
 								}
 							},
@@ -1812,14 +1818,20 @@
 								"method": "DELETE",
 								"header": [],
 								"url": {
-									"raw": "{{url}}/admin/orders/2",
+									"raw": "{{url}}/admin/orders/:id",
 									"host": [
 										"{{url}}"
 									],
 									"path": [
 										"admin",
 										"orders",
-										"2"
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": ""
+										}
 									]
 								}
 							},
@@ -1896,7 +1908,7 @@
 									]
 								},
 								"url": {
-									"raw": "{{url}}/admin/orders/status/5",
+									"raw": "{{url}}/admin/orders/status/:id",
 									"host": [
 										"{{url}}"
 									],
@@ -1904,7 +1916,44 @@
 										"admin",
 										"orders",
 										"status",
-										"5"
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": ""
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get single order by table no",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url}}/admin/orders/:table_id",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"orders",
+										":table_id"
+									],
+									"variable": [
+										{
+											"key": "table_id",
+											"value": ""
+										}
 									]
 								}
 							},
@@ -2051,6 +2100,36 @@
 										{
 											"key": "id",
 											"value": ""
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get all order detail",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url}}/admin/order-details?pagination_limit=1",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"order-details"
+									],
+									"query": [
+										{
+											"key": "pagination_limit",
+											"value": "1"
 										}
 									]
 								}
