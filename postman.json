@@ -75,6 +75,16 @@
 						{
 							"name": "get all customers",
 							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
 								"method": "GET",
 								"header": [],
 								"url": {
@@ -99,6 +109,16 @@
 						{
 							"name": "update customer details",
 							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
 								"method": "POST",
 								"header": [
 									{
@@ -160,6 +180,16 @@
 						{
 							"name": "delete customer",
 							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
 								"method": "DELETE",
 								"header": [],
 								"url": {
@@ -190,6 +220,16 @@
 						{
 							"name": "create user account",
 							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
 								"method": "POST",
 								"header": [
 									{
@@ -244,6 +284,16 @@
 						{
 							"name": "get all user",
 							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
 								"method": "GET",
 								"header": [],
 								"url": {
@@ -738,7 +788,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n\n\"product_name\":\"Momo\",\n\"product_category_id\":1,\n\"ingredient\":\"gffg\",\n\"description\":\"fgfgfg\",\n\"has_variation\":1,\n\n\"variations\":[\n    {\n        \"id\":22,\n        \"variation_name\": \"Steam 5\",\n        \"price\": 200\n    },\n    {\n        \n        \"variation_name\": \"2\",\n        \"price\": 200\n    }\n\n],\n\"base_price\":550,\n\"_method\":\"put\"\n}",
+									"raw": "{\n\n\"product_name\":\"Momo\",\n\"product_category_id\":1,\n\"ingredient\":\"gffg\",\n\"description\":\"fgfgfg\",\n\"has_variation\":1,\n\n\"variations\":[\n    {\n        \"id\":34,\n        \"variation_name\": \"Steam\",\n        \"price\": 200\n    },\n    {\n       \n        \"variation_name\": \"2\",\n        \"price\": 200\n    }\n\n],\n\"base_price\":550,\n\"_method\":\"put\"\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -934,6 +984,16 @@
 						{
 							"name": "create floor",
 							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
 								"method": "POST",
 								"header": [
 									{
@@ -947,7 +1007,7 @@
 									"formdata": [
 										{
 											"key": "floor_name",
-											"value": "F2",
+											"value": "F58",
 											"type": "text"
 										},
 										{
@@ -957,12 +1017,12 @@
 										},
 										{
 											"key": "table_numbers[]",
-											"value": "1",
+											"value": "T11",
 											"type": "text"
 										},
 										{
 											"key": "table_numbers[]",
-											"value": "24",
+											"value": "T11",
 											"type": "text"
 										}
 									]
@@ -983,6 +1043,16 @@
 						{
 							"name": "update floor",
 							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
 								"method": "POST",
 								"header": [
 									{
@@ -1043,6 +1113,16 @@
 						{
 							"name": "delete floor",
 							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
 								"method": "DELETE",
 								"header": [],
 								"url": {
@@ -1068,6 +1148,16 @@
 						{
 							"name": "get all floor list",
 							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
 								"method": "GET",
 								"header": [
 									{
@@ -1098,6 +1188,16 @@
 						{
 							"name": "create site setting",
 							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
 								"method": "POST",
 								"header": [
 									{
@@ -1197,6 +1297,16 @@
 						{
 							"name": "get site setting data",
 							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
 								"method": "GET",
 								"header": [
 									{
@@ -1226,6 +1336,16 @@
 						{
 							"name": "create payment option",
 							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
 								"method": "POST",
 								"header": [
 									{
@@ -1265,6 +1385,16 @@
 						{
 							"name": "get all payment options",
 							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
 								"method": "GET",
 								"header": [],
 								"url": {
@@ -1289,6 +1419,16 @@
 						{
 							"name": "delete payment options",
 							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
 								"method": "DELETE",
 								"header": [],
 								"url": {
@@ -1308,6 +1448,16 @@
 						{
 							"name": "update payment option",
 							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
 								"method": "POST",
 								"header": [
 									{
@@ -1358,6 +1508,16 @@
 						{
 							"name": "create pickup users",
 							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
 								"method": "POST",
 								"header": [
 									{
@@ -1407,6 +1567,16 @@
 						{
 							"name": "get all pick up user",
 							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
 								"method": "GET",
 								"header": [],
 								"url": {
@@ -1431,6 +1601,16 @@
 						{
 							"name": "delete pickup user",
 							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
 								"method": "DELETE",
 								"header": [],
 								"url": {
@@ -1456,6 +1636,16 @@
 						{
 							"name": "update pickup user",
 							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
 								"method": "POST",
 								"header": [
 									{
@@ -1522,6 +1712,16 @@
 						{
 							"name": "create order",
 							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
 								"method": "POST",
 								"header": [
 									{
@@ -1555,6 +1755,16 @@
 						{
 							"name": "edit order",
 							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
 								"method": "POST",
 								"header": [
 									{
@@ -1589,6 +1799,16 @@
 						{
 							"name": "delete order",
 							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
 								"method": "DELETE",
 								"header": [],
 								"url": {
@@ -1608,6 +1828,16 @@
 						{
 							"name": "get all order list",
 							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
 								"method": "GET",
 								"header": [],
 								"url": {
@@ -1628,6 +1858,57 @@
 								}
 							},
 							"response": []
+						},
+						{
+							"name": "change status",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "status",
+											"value": "cancelled",
+											"type": "text"
+										},
+										{
+											"key": "_method",
+											"value": "patch",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/admin/orders/status/5",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"orders",
+										"status",
+										"5"
+									]
+								}
+							},
+							"response": []
 						}
 					]
 				},
@@ -1637,6 +1918,16 @@
 						{
 							"name": "delete order details",
 							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
 								"method": "DELETE",
 								"header": [],
 								"url": {
@@ -1662,6 +1953,16 @@
 						{
 							"name": "update order details",
 							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
 								"method": "POST",
 								"header": [
 									{
@@ -1694,6 +1995,63 @@
 										"admin",
 										"order-details",
 										"6"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "change status",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "status",
+											"value": "ordered",
+											"type": "text"
+										},
+										{
+											"key": "_method",
+											"value": "patch",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/admin/order-details/status/:id",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"order-details",
+										"status",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": ""
+										}
 									]
 								}
 							},
