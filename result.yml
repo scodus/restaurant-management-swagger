@@ -80,6 +80,8 @@ paths:
       tags:
         - Admin > Customers
       summary: get all customers
+      security:
+        - bearerAuth: []
       parameters:
         - name: pagination_limit
           in: query
@@ -117,6 +119,8 @@ paths:
                 _method:
                   type: string
                   example: put
+      security:
+        - bearerAuth: []
       parameters:
         - name: Accept
           in: header
@@ -137,6 +141,8 @@ paths:
       tags:
         - Admin > Customers
       summary: delete customer
+      security:
+        - bearerAuth: []
       parameters:
         - name: slug
           in: path
@@ -174,6 +180,8 @@ paths:
                 status:
                   type: string
                   example: Active
+      security:
+        - bearerAuth: []
       parameters:
         - name: Accept
           in: header
@@ -189,6 +197,8 @@ paths:
       tags:
         - Admin > User
       summary: get all user
+      security:
+        - bearerAuth: []
       parameters:
         - name: pagination_limit
           in: query
@@ -519,8 +529,8 @@ paths:
                 description: fgfgfg
                 has_variation: 1
                 variations:
-                  - id: 22
-                    variation_name: Steam 5
+                  - id: 34
+                    variation_name: Steam
                     price: 200
                   - variation_name: '2'
                     price: 200
@@ -655,13 +665,15 @@ paths:
               properties:
                 floor_name:
                   type: string
-                  example: F2
+                  example: F58
                 description:
                   type: string
                   example: f1
                 table_numbers[]:
-                  type: integer
-                  example: '24'
+                  type: string
+                  example: T11
+      security:
+        - bearerAuth: []
       parameters:
         - name: Accept
           in: header
@@ -696,6 +708,8 @@ paths:
                 _method:
                   type: string
                   example: put
+      security:
+        - bearerAuth: []
       parameters:
         - name: Accept
           in: header
@@ -712,6 +726,8 @@ paths:
       tags:
         - Admin > Floor
       summary: delete floor
+      security:
+        - bearerAuth: []
       parameters:
         - name: id
           in: path
@@ -728,6 +744,8 @@ paths:
       tags:
         - Admin > Floor
       summary: get all floor list
+      security:
+        - bearerAuth: []
       parameters:
         - name: Accept
           in: header
@@ -780,6 +798,8 @@ paths:
                 logo:
                   type: string
                   format: binary
+      security:
+        - bearerAuth: []
       parameters:
         - name: Accept
           in: header
@@ -795,6 +815,8 @@ paths:
       tags:
         - Admin > Site Setting
       summary: get site setting data
+      security:
+        - bearerAuth: []
       parameters:
         - name: Accept
           in: header
@@ -823,6 +845,8 @@ paths:
                 payment_image:
                   type: string
                   format: binary
+      security:
+        - bearerAuth: []
       parameters:
         - name: Accept
           in: header
@@ -838,6 +862,8 @@ paths:
       tags:
         - Admin > Payment Option
       summary: get all payment options
+      security:
+        - bearerAuth: []
       parameters:
         - name: pagination_limit
           in: query
@@ -854,6 +880,8 @@ paths:
       tags:
         - Admin > Payment Option
       summary: delete payment options
+      security:
+        - bearerAuth: []
       responses:
         '200':
           description: Successful response
@@ -879,6 +907,8 @@ paths:
                 _method:
                   type: string
                   example: put
+      security:
+        - bearerAuth: []
       parameters:
         - name: Accept
           in: header
@@ -913,6 +943,8 @@ paths:
                 time:
                   type: string
                   example: '2023-10-16 09:12:00'
+      security:
+        - bearerAuth: []
       parameters:
         - name: Accept
           in: header
@@ -928,6 +960,8 @@ paths:
       tags:
         - Admin > PickUp Users
       summary: get all pick up user
+      security:
+        - bearerAuth: []
       parameters:
         - name: pagination_limit
           in: query
@@ -944,6 +978,8 @@ paths:
       tags:
         - Admin > PickUp Users
       summary: delete pickup user
+      security:
+        - bearerAuth: []
       parameters:
         - name: id
           in: path
@@ -980,6 +1016,8 @@ paths:
                 _method:
                   type: string
                   example: put
+      security:
+        - bearerAuth: []
       parameters:
         - name: Accept
           in: header
@@ -1018,6 +1056,8 @@ paths:
                   - product_variation_id: 2
                     price: 150
                     quantity: 2
+      security:
+        - bearerAuth: []
       parameters:
         - name: Accept
           in: header
@@ -1033,6 +1073,8 @@ paths:
       tags:
         - Admin > Order
       summary: get all order list
+      security:
+        - bearerAuth: []
       parameters:
         - name: pagination_limit
           in: query
@@ -1060,6 +1102,8 @@ paths:
                 pickup_user_id: 2
                 description: Momo
                 _method: put
+      security:
+        - bearerAuth: []
       parameters:
         - name: Accept
           in: header
@@ -1076,6 +1120,38 @@ paths:
       tags:
         - Admin > Order
       summary: delete order
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /admin/orders/status/5:
+    post:
+      tags:
+        - Admin > Order
+      summary: change status
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                status:
+                  type: string
+                  example: cancelled
+                _method:
+                  type: string
+                  example: patch
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
       responses:
         '200':
           description: Successful response
@@ -1086,6 +1162,8 @@ paths:
       tags:
         - Admin > Order Details
       summary: delete order details
+      security:
+        - bearerAuth: []
       parameters:
         - name: id
           in: path
@@ -1114,12 +1192,49 @@ paths:
                 _method:
                   type: string
                   example: put
+      security:
+        - bearerAuth: []
       parameters:
         - name: Accept
           in: header
           schema:
             type: string
           example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /admin/order-details/status/{id}:
+    post:
+      tags:
+        - Admin > Order Details
+      summary: change status
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                status:
+                  type: string
+                  example: ordered
+                _method:
+                  type: string
+                  example: patch
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: id
+          in: path
+          schema:
+            type: string
+          required: true
       responses:
         '200':
           description: Successful response
