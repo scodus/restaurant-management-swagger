@@ -1086,7 +1086,7 @@ paths:
           description: Successful response
           content:
             application/json: {}
-  /admin/orders/9:
+  /admin/orders/{id}:
     post:
       tags:
         - Admin > Order
@@ -1110,24 +1110,34 @@ paths:
           schema:
             type: string
           example: application/json
+        - name: id
+          in: path
+          schema:
+            type: string
+          required: true
       responses:
         '200':
           description: Successful response
           content:
             application/json: {}
-  /admin/orders/2:
     delete:
       tags:
         - Admin > Order
       summary: delete order
       security:
         - bearerAuth: []
+      parameters:
+        - name: id
+          in: path
+          schema:
+            type: string
+          required: true
       responses:
         '200':
           description: Successful response
           content:
             application/json: {}
-  /admin/orders/status/5:
+  /admin/orders/status/{id}:
     post:
       tags:
         - Admin > Order
@@ -1152,6 +1162,32 @@ paths:
           schema:
             type: string
           example: application/json
+        - name: id
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /admin/orders/{table_id}:
+    get:
+      tags:
+        - Admin > Order
+      summary: get single order by table no
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: table_id
+          in: path
+          schema:
+            type: string
+          required: true
       responses:
         '200':
           description: Successful response
@@ -1235,6 +1271,27 @@ paths:
           schema:
             type: string
           required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /admin/order-details:
+    get:
+      tags:
+        - Admin > Order Details
+      summary: get all order detail
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: pagination_limit
+          in: query
+          schema:
+            type: integer
+          example: '1'
       responses:
         '200':
           description: Successful response
