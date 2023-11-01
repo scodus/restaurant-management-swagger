@@ -731,7 +731,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n\n\"product_name\":\"Momo\",\n\"product_category_id\":1,\n\"ingredient\":\"gffg\",\n\"description\":\"fgfgfg\",\n\"has_variation\":1,\n\n\"variations\":[\n    {\n        \"variation_name\": \"Variation 1\",\n        \"price\": 100\n    },\n    {\n        \"variation_name\": \"Variation 2\",\n        \"price\": 200\n    }\n\n],\n\"base_price\":550\n}",
+									"raw": "{\n\n\"product_name\":\"Momo\",\n\"product_category_id\":1,\n\"ingredient\":\"gffg\",\n\"description\":\"fgfgfg\",\n\"has_variation\":1,\n\"variations\":[\n    {\n        \"variation_name\": \"Steam Momo\",\n        \"price\": 100\n    },\n    {\n        \"variation_name\": \"Fry Momo\",\n        \"price\": 200\n    }\n\n],\n\"base_price\":550\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -788,7 +788,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n\n\"product_name\":\"Momo\",\n\"product_category_id\":1,\n\"ingredient\":\"gffg\",\n\"description\":\"fgfgfg\",\n\"has_variation\":1,\n\n\"variations\":[\n    {\n        \"id\":34,\n        \"variation_name\": \"Steam\",\n        \"price\": 200\n    },\n    {\n       \n        \"variation_name\": \"2\",\n        \"price\": 200\n    }\n\n],\n\"base_price\":550,\n\"_method\":\"put\"\n}",
+									"raw": "{\n\n\"product_name\":\"Chicken\",\n\"product_category_id\":1,\n\"ingredient\":\"gffg\",\n\"description\":\"fgfgfg\",\n\"has_variation\":1,\n\n\"variations\":[\n    {\n        \"id\":34,\n        \"variation_name\": \"Steam\",\n        \"price\": 200\n    },\n    {\n       \n        \"variation_name\": \"2\",\n        \"price\": 200\n    }\n\n],\n\"base_price\":550,\n\"_method\":\"put\"\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -796,14 +796,14 @@
 									}
 								},
 								"url": {
-									"raw": "{{url}}/admin/products/momo",
+									"raw": "{{url}}/admin/products/chicken",
 									"host": [
 										"{{url}}"
 									],
 									"path": [
 										"admin",
 										"products",
-										"momo"
+										"chicken"
 									]
 								}
 							},
@@ -1732,7 +1732,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"table_id\":1,\n    \"customer_id\":1,\n    \"pickup_user_id\":1,\n    \"description\":\"ab cd ef gh\",\n    \"productDetails\":[\n        {\n            \"product_variation_id\":1,\n            \"price\":100,\n            \"quantity\":5\n\n        },\n         {\n            \"product_variation_id\":2,\n            \"price\":150,\n            \"quantity\":2\n\n        }\n    ]\n\n\n\n}",
+									"raw": "{\n    \"table_id\":1,\n    \"customer_id\":1,\n    \"pickup_user_id\":1,\n    \"description\":\"ab cd ef gh\",\n    \"productDetails\":[\n        {\n            \"product_variation_id\":45,\n            \"price\":100,\n            \"quantity\":5\n\n        },\n         {\n            \"product_variation_id\":46,\n            \"price\":150,\n            \"quantity\":2\n\n        }\n    ]\n\n\n\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -1853,7 +1853,7 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{url}}/admin/orders?pagination_limit=2",
+									"raw": "{{url}}/admin/orders?pagination_limit=20",
 									"host": [
 										"{{url}}"
 									],
@@ -1864,7 +1864,7 @@
 									"query": [
 										{
 											"key": "pagination_limit",
-											"value": "2"
+											"value": "20"
 										}
 									]
 								}
@@ -1931,6 +1931,16 @@
 						{
 							"name": "get single order by table no",
 							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
 								"method": "GET",
 								"header": [
 									{
@@ -1952,6 +1962,42 @@
 									"variable": [
 										{
 											"key": "table_id",
+											"value": ""
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get single order by pickup user",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/admin/orders/pickup-user/:pickup_user_id",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"orders",
+										"pickup-user",
+										":pickup_user_id"
+									],
+									"variable": [
+										{
+											"key": "pickup_user_id",
 											"value": ""
 										}
 									]

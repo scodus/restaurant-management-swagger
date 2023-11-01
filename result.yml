@@ -481,9 +481,9 @@ paths:
                 description: fgfgfg
                 has_variation: 1
                 variations:
-                  - variation_name: Variation 1
+                  - variation_name: Steam Momo
                     price: 100
-                  - variation_name: Variation 2
+                  - variation_name: Fry Momo
                     price: 200
                 base_price: 550
       parameters:
@@ -512,7 +512,7 @@ paths:
           description: Successful response
           content:
             application/json: {}
-  /admin/products/momo:
+  /admin/products/chicken:
     post:
       tags:
         - Admin > Product
@@ -523,7 +523,7 @@ paths:
             schema:
               type: object
               example:
-                product_name: Momo
+                product_name: Chicken
                 product_category_id: 1
                 ingredient: gffg
                 description: fgfgfg
@@ -1050,10 +1050,10 @@ paths:
                 pickup_user_id: 1
                 description: ab cd ef gh
                 productDetails:
-                  - product_variation_id: 1
+                  - product_variation_id: 45
                     price: 100
                     quantity: 5
-                  - product_variation_id: 2
+                  - product_variation_id: 46
                     price: 150
                     quantity: 2
       security:
@@ -1080,7 +1080,7 @@ paths:
           in: query
           schema:
             type: integer
-          example: '2'
+          example: '20'
       responses:
         '200':
           description: Successful response
@@ -1177,6 +1177,8 @@ paths:
       tags:
         - Admin > Order
       summary: get single order by table no
+      security:
+        - bearerAuth: []
       parameters:
         - name: Accept
           in: header
@@ -1184,6 +1186,24 @@ paths:
             type: string
           example: application/json
         - name: table_id
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /admin/orders/pickup-user/{pickup_user_id}:
+    get:
+      tags:
+        - Admin > Order
+      summary: get single order by pickup user
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: pickup_user_id
           in: path
           schema:
             type: string
