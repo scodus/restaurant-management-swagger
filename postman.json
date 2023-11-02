@@ -2170,7 +2170,7 @@
 									}
 								],
 								"url": {
-									"raw": "{{url}}/admin/order-details?pagination_limit=1",
+									"raw": "{{url}}/admin/order-details?pagination_limit=10",
 									"host": [
 										"{{url}}"
 									],
@@ -2181,7 +2181,7 @@
 									"query": [
 										{
 											"key": "pagination_limit",
-											"value": "1"
+											"value": "10"
 										}
 									]
 								}
@@ -2334,6 +2334,36 @@
 									"path": [
 										"admin",
 										"order-payments"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get all order payment",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url}}/admin/order-payments?pagination_limit=1",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"order-payments"
+									],
+									"query": [
+										{
+											"key": "pagination_limit",
+											"value": "1"
+										}
 									]
 								}
 							},
