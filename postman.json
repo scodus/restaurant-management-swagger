@@ -2272,59 +2272,13 @@
 									}
 								],
 								"body": {
-									"mode": "formdata",
-									"formdata": [
-										{
-											"key": "order_id",
-											"value": "10",
-											"type": "text"
-										},
-										{
-											"key": "payment_method",
-											"value": "1",
-											"type": "text"
-										},
-										{
-											"key": "subtotal",
-											"value": "344",
-											"type": "text"
-										},
-										{
-											"key": "tax",
-											"value": "3",
-											"type": "text"
-										},
-										{
-											"key": "discount",
-											"value": "3434",
-											"type": "text"
-										},
-										{
-											"key": "discount_type",
-											"value": "rupees",
-											"type": "text"
-										},
-										{
-											"key": "net_total",
-											"value": "3434",
-											"type": "text"
-										},
-										{
-											"key": "paid",
-											"value": "344",
-											"type": "text"
-										},
-										{
-											"key": "return",
-											"value": "344",
-											"type": "text"
-										},
-										{
-											"key": "net_amount",
-											"value": "34434",
-											"type": "text"
+									"mode": "raw",
+									"raw": "{\n    \"payment_order_no\":10,\n\"payment_method\":1,\n\"orders\":[\n    {\n       \n        \"order_id\":10\n    },\n    {\n        \n        \"order_id\":2\n    }\n\n],\n\"subtotal\":344,\n\"tax\":3,\n\"discount\":3434,\n\"discount_type\":\"rupees\",\n\"net_total\":3434,\n\"paid\":344,\n\"return\":344,\n\"net_amount\":34434\n}",
+									"options": {
+										"raw": {
+											"language": "json"
 										}
-									]
+									}
 								},
 								"url": {
 									"raw": "{{url}}/admin/order-payments",
@@ -2342,6 +2296,16 @@
 						{
 							"name": "get all order payment",
 							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
 								"method": "GET",
 								"header": [
 									{
@@ -2351,7 +2315,7 @@
 									}
 								],
 								"url": {
-									"raw": "{{url}}/admin/order-payments?pagination_limit=1",
+									"raw": "{{url}}/admin/order-payments?pagination_limit=10",
 									"host": [
 										"{{url}}"
 									],
@@ -2362,7 +2326,32 @@
 									"query": [
 										{
 											"key": "pagination_limit",
-											"value": "1"
+											"value": "10"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "delete order payment",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/admin/order-payments/:id",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"order-payments",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": ""
 										}
 									]
 								}
