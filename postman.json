@@ -2082,14 +2082,20 @@
 									]
 								},
 								"url": {
-									"raw": "{{url}}/admin/order-details/6",
+									"raw": "{{url}}/admin/order-details/:id",
 									"host": [
 										"{{url}}"
 									],
 									"path": [
 										"admin",
 										"order-details",
-										"6"
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": ""
+										}
 									]
 								}
 							},
@@ -2234,6 +2240,100 @@
 											"key": "id",
 											"value": ""
 										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Order Payment",
+					"item": [
+						{
+							"name": "store order payments",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "order_id",
+											"value": "10",
+											"type": "text"
+										},
+										{
+											"key": "payment_method",
+											"value": "1",
+											"type": "text"
+										},
+										{
+											"key": "subtotal",
+											"value": "344",
+											"type": "text"
+										},
+										{
+											"key": "tax",
+											"value": "3",
+											"type": "text"
+										},
+										{
+											"key": "discount",
+											"value": "3434",
+											"type": "text"
+										},
+										{
+											"key": "discount_type",
+											"value": "rupees",
+											"type": "text"
+										},
+										{
+											"key": "net_total",
+											"value": "3434",
+											"type": "text"
+										},
+										{
+											"key": "paid",
+											"value": "344",
+											"type": "text"
+										},
+										{
+											"key": "return",
+											"value": "344",
+											"type": "text"
+										},
+										{
+											"key": "net_amount",
+											"value": "34434",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/admin/order-payments",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"order-payments"
 									]
 								}
 							},

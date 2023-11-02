@@ -37,6 +37,7 @@ tags:
   - name: Admin > PickUp Users
   - name: Admin > Order
   - name: Admin > Order Details
+  - name: Admin > Order Payment
   - name: Public
   - name: Public > Auth
 paths:
@@ -1231,7 +1232,6 @@ paths:
           description: Successful response
           content:
             application/json: {}
-  /admin/order-details/6:
     post:
       tags:
         - Admin > Order Details
@@ -1256,6 +1256,11 @@ paths:
           schema:
             type: string
           example: application/json
+        - name: id
+          in: path
+          schema:
+            type: string
+          required: true
       responses:
         '200':
           description: Successful response
@@ -1347,6 +1352,60 @@ paths:
           schema:
             type: string
           required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /admin/order-payments:
+    post:
+      tags:
+        - Admin > Order Payment
+      summary: store order payments
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                order_id:
+                  type: integer
+                  example: '10'
+                payment_method:
+                  type: integer
+                  example: '1'
+                subtotal:
+                  type: integer
+                  example: '344'
+                tax:
+                  type: integer
+                  example: '3'
+                discount:
+                  type: integer
+                  example: '3434'
+                discount_type:
+                  type: string
+                  example: rupees
+                net_total:
+                  type: integer
+                  example: '3434'
+                paid:
+                  type: integer
+                  example: '344'
+                return:
+                  type: integer
+                  example: '344'
+                net_amount:
+                  type: integer
+                  example: '34434'
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
       responses:
         '200':
           description: Successful response
