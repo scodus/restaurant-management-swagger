@@ -1364,40 +1364,23 @@ paths:
       summary: store order payments
       requestBody:
         content:
-          multipart/form-data:
+          application/json:
             schema:
               type: object
-              properties:
-                order_id:
-                  type: integer
-                  example: '10'
-                payment_method:
-                  type: integer
-                  example: '1'
-                subtotal:
-                  type: integer
-                  example: '344'
-                tax:
-                  type: integer
-                  example: '3'
-                discount:
-                  type: integer
-                  example: '3434'
-                discount_type:
-                  type: string
-                  example: rupees
-                net_total:
-                  type: integer
-                  example: '3434'
-                paid:
-                  type: integer
-                  example: '344'
-                return:
-                  type: integer
-                  example: '344'
-                net_amount:
-                  type: integer
-                  example: '34434'
+              example:
+                payment_order_no: 10
+                payment_method: 1
+                orders:
+                  - order_id: 10
+                  - order_id: 2
+                subtotal: 344
+                tax: 3
+                discount: 3434
+                discount_type: rupees
+                net_total: 3434
+                paid: 344
+                return: 344
+                net_amount: 34434
       security:
         - bearerAuth: []
       parameters:
@@ -1415,6 +1398,8 @@ paths:
       tags:
         - Admin > Order Payment
       summary: get all order payment
+      security:
+        - bearerAuth: []
       parameters:
         - name: Accept
           in: header
@@ -1425,7 +1410,23 @@ paths:
           in: query
           schema:
             type: integer
-          example: '1'
+          example: '10'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /admin/order-payments/{id}:
+    delete:
+      tags:
+        - Admin > Order Payment
+      summary: delete order payment
+      parameters:
+        - name: id
+          in: path
+          schema:
+            type: string
+          required: true
       responses:
         '200':
           description: Successful response
