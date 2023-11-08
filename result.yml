@@ -1077,6 +1077,11 @@ paths:
       security:
         - bearerAuth: []
       parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
         - name: pagination_limit
           in: query
           schema:
@@ -1370,17 +1375,23 @@ paths:
               example:
                 payment_order_no: 10
                 payment_method: 1
+                table_id: 1
+                customer_id: 1
                 orders:
-                  - order_id: 10
-                  - order_id: 2
+                  - order_id: 1
+                  - order_id: 11
                 subtotal: 344
                 tax: 3
                 discount: 3434
                 discount_type: rupees
-                net_total: 3434
-                paid: 344
+                net_total: 100
+                paid: 10
                 return: 344
                 net_amount: 34434
+                name: Pravesh Rai
+                email: pravesh@gmail.com
+                phone: 983443354
+                address: lalitpur
       security:
         - bearerAuth: []
       parameters:
