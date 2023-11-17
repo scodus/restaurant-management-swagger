@@ -2041,6 +2041,38 @@
 								}
 							},
 							"response": []
+						},
+						{
+							"name": "get single data for order table",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url}}/admin/orders/all/:payment_order_no",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"orders",
+										"all",
+										":payment_order_no"
+									],
+									"variable": [
+										{
+											"key": "payment_order_no",
+											"value": ""
+										}
+									]
+								}
+							},
+							"response": []
 						}
 					]
 				},
@@ -2310,7 +2342,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n\"payment_order_no\":10,\n\"payment_method\":1,\n\"table_id\":1,\n\"customer_id\":1,\n\"orders\":[\n    {\n       \n        \"order_id\":1\n    },\n    {\n        \n        \"order_id\":11\n    }\n\n],\n\"subtotal\":344,\n\"tax\":3,\n\"discount\":3434,\n\"discount_type\":\"rupees\",\n\"net_total\":100,\n\"paid\":10,\n\"return\":344,\n\"net_amount\":34434,\n\n\"name\":\"Pravesh Rai\",\n\"email\":\"pravesh@gmail.com\",\n\"phone\":983443354,\n\"address\":\"lalitpur\"\n\n\n}",
+									"raw": "{\n\"payment_order_no\":10,\n\"payment_method\":1,\n\"table_id\":1,\n\"customer_id\":1,\n\"orders\":[\n    {\n       \n        \"order_id\":1\n    },\n    {\n        \n        \"order_id\":2\n    }\n\n],\n\"subtotal\":344,\n\"tax\":3,\n\"discount\":3434,\n\"discount_type\":\"rupees\",\n\"net_total\":100,\n\"paid\":10,\n\"return\":344,\n\"net_amount\":34434,\n\n\"name\":\"Pravesh Rai\",\n\"email\":\"pravesh@gmail.com\",\n\"phone\":983443354,\n\"address\":\"lalitpur\"\n\n\n}",
 									"options": {
 										"raw": {
 											"language": "json"

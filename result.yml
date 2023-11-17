@@ -1240,6 +1240,27 @@ paths:
           description: Successful response
           content:
             application/json: {}
+  /admin/orders/all/{payment_order_no}:
+    get:
+      tags:
+        - Admin > Order
+      summary: get single data for order table
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: payment_order_no
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
   /admin/order-details/{id}:
     delete:
       tags:
@@ -1400,7 +1421,7 @@ paths:
                 customer_id: 1
                 orders:
                   - order_id: 1
-                  - order_id: 11
+                  - order_id: 2
                 subtotal: 344
                 tax: 3
                 discount: 3434
