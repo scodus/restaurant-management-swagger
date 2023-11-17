@@ -1219,6 +1219,27 @@ paths:
           description: Successful response
           content:
             application/json: {}
+  /admin/orders/all:
+    get:
+      tags:
+        - Admin > Order
+      summary: get all order for order table
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: pagination_limit
+          in: query
+          schema:
+            type: integer
+          example: '1'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
   /admin/order-details/{id}:
     delete:
       tags:
