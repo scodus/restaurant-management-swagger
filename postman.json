@@ -86,9 +86,15 @@
 									]
 								},
 								"method": "GET",
-								"header": [],
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
 								"url": {
-									"raw": "{{url}}/admin/customers?pagination_limit=5",
+									"raw": "{{url}}/admin/customers",
 									"host": [
 										"{{url}}"
 									],
@@ -99,7 +105,8 @@
 									"query": [
 										{
 											"key": "pagination_limit",
-											"value": "5"
+											"value": "5",
+											"disabled": true
 										}
 									]
 								}
@@ -248,22 +255,12 @@
 										},
 										{
 											"key": "email",
-											"value": "hancie@gmail.com",
+											"value": "hancie1@gmail.com",
 											"type": "text"
 										},
 										{
-											"key": "password",
-											"value": "12345678",
-											"type": "text"
-										},
-										{
-											"key": "password_confirmation",
-											"value": "12345678",
-											"type": "text"
-										},
-										{
-											"key": "status",
-											"value": "Active",
+											"key": "role",
+											"value": "admin",
 											"type": "text"
 										}
 									]
@@ -365,6 +362,72 @@
 										"admin",
 										"users",
 										"change-password"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "update user",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "name",
+											"value": "Nitesh Hamal",
+											"type": "text"
+										},
+										{
+											"key": "email",
+											"value": "nitesh0hamal@gmail.com",
+											"type": "text"
+										},
+										{
+											"key": "role",
+											"value": "cashier",
+											"type": "text"
+										},
+										{
+											"key": "_method",
+											"value": "put",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/admin/users/:user_id",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"users",
+										":user_id"
+									],
+									"variable": [
+										{
+											"key": "user_id",
+											"value": ""
+										}
 									]
 								}
 							},
