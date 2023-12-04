@@ -1560,6 +1560,33 @@ paths:
           description: Successful response
           content:
             application/json: {}
+  /admin/customer-partial-payment/1:
+    post:
+      tags:
+        - Admin > Customer Partial Payments
+      summary: update customer partial payment
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                net_total:
+                  type: integer
+                  example: '50'
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
   /api/login:
     post:
       tags:
