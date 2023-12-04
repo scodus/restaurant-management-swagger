@@ -94,7 +94,7 @@
 									}
 								],
 								"url": {
-									"raw": "{{url}}/admin/customers",
+									"raw": "{{url}}/admin/customers?pagination_limit=5",
 									"host": [
 										"{{url}}"
 									],
@@ -105,8 +105,7 @@
 									"query": [
 										{
 											"key": "pagination_limit",
-											"value": "5",
-											"disabled": true
+											"value": "5"
 										}
 									]
 								}
@@ -428,6 +427,82 @@
 											"key": "user_id",
 											"value": ""
 										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "delete user",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url}}/admin/users/53",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"users",
+										"53"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "email verified",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "password",
+											"value": "password",
+											"type": "text"
+										},
+										{
+											"key": "password_confirmation",
+											"value": "password",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/email-verified",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"email-verified"
 									]
 								}
 							},
@@ -2405,7 +2480,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n\"payment_order_no\":10,\n\"payment_method\":1,\n\"table_id\":1,\n\"customer_id\":1,\n\"orders\":[\n    {\n       \n        \"order_id\":1\n    },\n    {\n        \n        \"order_id\":2\n    }\n\n],\n\"subtotal\":344,\n\"tax\":3,\n\"discount\":3434,\n\"discount_type\":\"rupees\",\n\"net_total\":100,\n\"paid\":10,\n\"return\":344,\n\"net_amount\":34434,\n\n\"name\":\"Pravesh Rai\",\n\"email\":\"pravesh@gmail.com\",\n\"phone\":983443354,\n\"address\":\"lalitpur\"\n\n\n}",
+									"raw": "{\n\"payment_order_no\":20,\n\"payment_method\":1,\n\"table_id\":2,\n\"customer_id\":1,\n\"orders\":[\n    {\n       \n        \"order_id\":1\n    },\n    {\n        \n        \"order_id\":2\n    }\n\n],\n\"subtotal\":344,\n\"tax\":3,\n\"discount\":3434,\n\"discount_type\":\"rupees\",\n\"net_total\":100,\n\"paid\":10,\n\"return\":344,\n\"net_amount\":34434,\n\n\"name\":\"Pravesh Rai\",\n\"email\":\"pravesh@gmail.com\",\n\"phone\":983443354,\n\"address\":\"lalitpur\"\n\n\n}",
 									"options": {
 										"raw": {
 											"language": "json"
