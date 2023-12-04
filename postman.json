@@ -2566,6 +2566,19 @@
 							"response": []
 						}
 					]
+				},
+				{
+					"name": "Customer Partial Payments",
+					"item": [
+						{
+							"name": "update customer partial payment",
+							"request": {
+								"method": "GET",
+								"header": []
+							},
+							"response": []
+						}
+					]
 				}
 			],
 			"auth": {
