@@ -2573,8 +2573,45 @@
 						{
 							"name": "update customer partial payment",
 							"request": {
-								"method": "GET",
-								"header": []
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "net_total",
+											"value": "50",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/admin/customer-partial-payment/1",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"customer-partial-payment",
+										"1"
+									]
+								}
 							},
 							"response": []
 						}
