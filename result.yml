@@ -38,6 +38,7 @@ tags:
   - name: Admin > Order
   - name: Admin > Order Details
   - name: Admin > Order Payment
+  - name: Admin > Customer Partial Payments
   - name: Public
   - name: Public > Auth
 paths:
