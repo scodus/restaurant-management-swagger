@@ -89,6 +89,11 @@ paths:
           schema:
             type: string
           example: application/json
+        - name: pagination_limit
+          in: query
+          schema:
+            type: integer
+          example: '5'
       responses:
         '200':
           description: Successful response
@@ -274,6 +279,40 @@ paths:
           schema:
             type: string
           required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /admin/users/53:
+    delete:
+      tags:
+        - Admin > User
+      summary: delete user
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /email-verified:
+    get:
+      tags:
+        - Admin > User
+      summary: email verified
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
       responses:
         '200':
           description: Successful response
@@ -1450,9 +1489,9 @@ paths:
             schema:
               type: object
               example:
-                payment_order_no: 10
+                payment_order_no: 20
                 payment_method: 1
-                table_id: 1
+                table_id: 2
                 customer_id: 1
                 orders:
                   - order_id: 1
