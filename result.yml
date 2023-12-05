@@ -1560,7 +1560,7 @@ paths:
           description: Successful response
           content:
             application/json: {}
-  /admin/customer-partial-payment/1:
+  /admin/customer-partial-payment/{customer_id}:
     post:
       tags:
         - Admin > Customer Partial Payments
@@ -1571,9 +1571,9 @@ paths:
             schema:
               type: object
               properties:
-                net_total:
+                paid_amount:
                   type: integer
-                  example: '50'
+                  example: '20'
       security:
         - bearerAuth: []
       parameters:
@@ -1582,6 +1582,11 @@ paths:
           schema:
             type: string
           example: application/json
+        - name: customer_id
+          in: path
+          schema:
+            type: string
+          required: true
       responses:
         '200':
           description: Successful response

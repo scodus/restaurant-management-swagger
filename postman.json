@@ -2595,21 +2595,27 @@
 									"mode": "formdata",
 									"formdata": [
 										{
-											"key": "net_total",
-											"value": "50",
+											"key": "paid_amount",
+											"value": "20",
 											"type": "text"
 										}
 									]
 								},
 								"url": {
-									"raw": "{{url}}/admin/customer-partial-payment/1",
+									"raw": "{{url}}/admin/customer-partial-payment/:customer_id",
 									"host": [
 										"{{url}}"
 									],
 									"path": [
 										"admin",
 										"customer-partial-payment",
-										"1"
+										":customer_id"
+									],
+									"variable": [
+										{
+											"key": "customer_id",
+											"value": ""
+										}
 									]
 								}
 							},
