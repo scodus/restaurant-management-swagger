@@ -94,7 +94,7 @@
 									}
 								],
 								"url": {
-									"raw": "{{url}}/admin/customers?pagination_limit=5",
+									"raw": "{{url}}/admin/customers?pagination_limit=5&status=due",
 									"host": [
 										"{{url}}"
 									],
@@ -106,6 +106,10 @@
 										{
 											"key": "pagination_limit",
 											"value": "5"
+										},
+										{
+											"key": "status",
+											"value": "due"
 										}
 									]
 								}
@@ -211,6 +215,38 @@
 									"variable": [
 										{
 											"key": "slug",
+											"value": ""
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "show single customer orders",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url}}/admin/customers/show-orders/:customer_id",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"customers",
+										"show-orders",
+										":customer_id"
+									],
+									"variable": [
+										{
+											"key": "customer_id",
 											"value": ""
 										}
 									]
@@ -2596,7 +2632,7 @@
 									"formdata": [
 										{
 											"key": "paid_amount",
-											"value": "20",
+											"value": "30",
 											"type": "text"
 										}
 									]

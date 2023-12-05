@@ -95,6 +95,11 @@ paths:
           schema:
             type: integer
           example: '5'
+        - name: status
+          in: query
+          schema:
+            type: string
+          example: due
       responses:
         '200':
           description: Successful response
@@ -152,6 +157,27 @@ paths:
         - bearerAuth: []
       parameters:
         - name: slug
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /admin/customers/show-orders/{customer_id}:
+    get:
+      tags:
+        - Admin > Customers
+      summary: show single customer orders
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: customer_id
           in: path
           schema:
             type: string
@@ -1573,7 +1599,7 @@ paths:
               properties:
                 paid_amount:
                   type: integer
-                  example: '20'
+                  example: '30'
       security:
         - bearerAuth: []
       parameters:
