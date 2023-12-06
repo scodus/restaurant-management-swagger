@@ -187,6 +187,22 @@ paths:
           description: Successful response
           content:
             application/json: {}
+  /admin/customers/{customer_id}:
+    get:
+      tags:
+        - Admin > Customers
+      summary: show single customer data
+      parameters:
+        - name: customer_id
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
   /admin/users:
     post:
       tags:
@@ -1599,7 +1615,7 @@ paths:
               properties:
                 paid_amount:
                   type: integer
-                  example: '30'
+                  example: '20'
       security:
         - bearerAuth: []
       parameters:
@@ -1609,6 +1625,27 @@ paths:
             type: string
           example: application/json
         - name: customer_id
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /admin/customer-partial-payment/order-items/{id}:
+    get:
+      tags:
+        - Admin > Customer Partial Payments
+      summary: get order items data by customer partial id
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: id
           in: path
           schema:
             type: string
