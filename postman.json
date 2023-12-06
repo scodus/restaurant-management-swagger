@@ -260,7 +260,7 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{url}}/admin/customers/:customer_id",
+									"raw": "{{url}}/admin/customers/:customer_id?status=due",
 									"host": [
 										"{{url}}"
 									],
@@ -268,6 +268,12 @@
 										"admin",
 										"customers",
 										":customer_id"
+									],
+									"query": [
+										{
+											"key": "status",
+											"value": "due"
+										}
 									],
 									"variable": [
 										{
