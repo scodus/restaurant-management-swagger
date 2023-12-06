@@ -193,6 +193,11 @@ paths:
         - Admin > Customers
       summary: show single customer data
       parameters:
+        - name: status
+          in: query
+          schema:
+            type: string
+          example: due
         - name: customer_id
           in: path
           schema:
