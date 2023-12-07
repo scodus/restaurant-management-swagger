@@ -39,6 +39,7 @@ tags:
   - name: Admin > Order Details
   - name: Admin > Order Payment
   - name: Admin > Customer Partial Payments
+  - name: Admin > Reports
   - name: Public
   - name: Public > Auth
 paths:
@@ -1666,6 +1667,27 @@ paths:
           schema:
             type: string
           required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /admin/reports/daily-income:
+    get:
+      tags:
+        - Admin > Reports
+      summary: daily income
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: pagination_limit
+          in: query
+          schema:
+            type: integer
+          example: '1'
       responses:
         '200':
           description: Successful response
