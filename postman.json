@@ -358,9 +358,15 @@
 									]
 								},
 								"method": "GET",
-								"header": [],
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
 								"url": {
-									"raw": "{{url}}/admin/users?pagination_limit=1",
+									"raw": "{{url}}/admin/users?pagination_limit=2",
 									"host": [
 										"{{url}}"
 									],
@@ -371,7 +377,7 @@
 									"query": [
 										{
 											"key": "pagination_limit",
-											"value": "1"
+											"value": "2"
 										}
 									]
 								}
@@ -473,6 +479,16 @@
 											"type": "text"
 										},
 										{
+											"key": "location",
+											"value": "ktm5",
+											"type": "text"
+										},
+										{
+											"key": "phone_no",
+											"value": "9825915122",
+											"type": "text"
+										},
+										{
 											"key": "_method",
 											"value": "put",
 											"type": "text"
@@ -480,20 +496,14 @@
 									]
 								},
 								"url": {
-									"raw": "{{url}}/admin/users/:user_id",
+									"raw": "{{url}}/admin/users/47",
 									"host": [
 										"{{url}}"
 									],
 									"path": [
 										"admin",
 										"users",
-										":user_id"
-									],
-									"variable": [
-										{
-											"key": "user_id",
-											"value": ""
-										}
+										"47"
 									]
 								}
 							},
@@ -2228,7 +2238,7 @@
 									}
 								],
 								"url": {
-									"raw": "{{url}}/admin/orders/all?pagination_limit=1",
+									"raw": "{{url}}/admin/orders/all?pagination_limit=1&search=payment_order_no",
 									"host": [
 										"{{url}}"
 									],
@@ -2241,6 +2251,10 @@
 										{
 											"key": "pagination_limit",
 											"value": "1"
+										},
+										{
+											"key": "search",
+											"value": "payment_order_no"
 										}
 									]
 								}
