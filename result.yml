@@ -248,11 +248,16 @@ paths:
       security:
         - bearerAuth: []
       parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
         - name: pagination_limit
           in: query
           schema:
             type: integer
-          example: '1'
+          example: '2'
       responses:
         '200':
           description: Successful response
@@ -291,7 +296,7 @@ paths:
           description: Successful response
           content:
             application/json: {}
-  /admin/users/{user_id}:
+  /admin/users/47:
     post:
       tags:
         - Admin > User
@@ -311,6 +316,12 @@ paths:
                 role:
                   type: string
                   example: cashier
+                location:
+                  type: string
+                  example: ktm5
+                phone_no:
+                  type: integer
+                  example: '9825915122'
                 _method:
                   type: string
                   example: put
@@ -322,11 +333,6 @@ paths:
           schema:
             type: string
           example: application/json
-        - name: user_id
-          in: path
-          schema:
-            type: string
-          required: true
       responses:
         '200':
           description: Successful response
@@ -1357,6 +1363,11 @@ paths:
           schema:
             type: integer
           example: '1'
+        - name: search
+          in: query
+          schema:
+            type: string
+          example: payment_order_no
       responses:
         '200':
           description: Successful response
