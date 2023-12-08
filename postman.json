@@ -584,6 +584,31 @@
 								}
 							},
 							"response": []
+						},
+						{
+							"name": "get single user data",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/admin/users/:id",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"users",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": ""
+										}
+									]
+								}
+							},
+							"response": []
 						}
 					]
 				},
@@ -2751,7 +2776,7 @@
 									}
 								],
 								"url": {
-									"raw": "{{url}}/admin/reports/daily-income?pagination_limit=1",
+									"raw": "{{url}}/admin/reports/daily-income?pagination_limit=3",
 									"host": [
 										"{{url}}"
 									],
@@ -2763,8 +2788,77 @@
 									"query": [
 										{
 											"key": "pagination_limit",
-											"value": "1"
+											"value": "3"
 										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "sales by user",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url}}/admin/reports/sales-by-user",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"reports",
+										"sales-by-user"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "sales by category",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/admin/reports/sales-by-category?pagination_limit=2",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"reports",
+										"sales-by-category"
+									],
+									"query": [
+										{
+											"key": "pagination_limit",
+											"value": "2"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "cancelled orders report",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/admin/reports/cancelled-orders",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"reports",
+										"cancelled-orders"
 									]
 								}
 							},

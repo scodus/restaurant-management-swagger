@@ -373,6 +373,22 @@ paths:
           description: Successful response
           content:
             application/json: {}
+  /admin/users/{id}:
+    get:
+      tags:
+        - Admin > User
+      summary: get single user data
+      parameters:
+        - name: id
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
   /admin/product-categories:
     post:
       tags:
@@ -1687,7 +1703,49 @@ paths:
           in: query
           schema:
             type: integer
-          example: '1'
+          example: '3'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /admin/reports/sales-by-user:
+    get:
+      tags:
+        - Admin > Reports
+      summary: sales by user
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /admin/reports/sales-by-category:
+    get:
+      tags:
+        - Admin > Reports
+      summary: sales by category
+      parameters:
+        - name: pagination_limit
+          in: query
+          schema:
+            type: integer
+          example: '2'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /admin/reports/cancelled-orders:
+    get:
+      tags:
+        - Admin > Reports
+      summary: cancelled orders report
       responses:
         '200':
           description: Successful response
