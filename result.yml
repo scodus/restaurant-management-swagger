@@ -1693,6 +1693,8 @@ paths:
       tags:
         - Admin > Reports
       summary: daily income
+      security:
+        - bearerAuth: []
       parameters:
         - name: Accept
           in: header
@@ -1714,6 +1716,8 @@ paths:
       tags:
         - Admin > Reports
       summary: sales by user
+      security:
+        - bearerAuth: []
       parameters:
         - name: Accept
           in: header
@@ -1730,6 +1734,8 @@ paths:
       tags:
         - Admin > Reports
       summary: sales by category
+      security:
+        - bearerAuth: []
       parameters:
         - name: pagination_limit
           in: query
@@ -1746,6 +1752,47 @@ paths:
       tags:
         - Admin > Reports
       summary: cancelled orders report
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: pagination_limit
+          in: query
+          schema:
+            type: integer
+          example: '1'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /admin/reports/income-by-time:
+    get:
+      tags:
+        - Admin > Reports
+      summary: income by time
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: pagination_limit
+          in: query
+          schema:
+            type: integer
+          example: '5'
+        - name: date
+          in: query
+          schema:
+            type: string
+          example: 12-04-2023
       responses:
         '200':
           description: Successful response

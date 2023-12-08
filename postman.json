@@ -2767,6 +2767,16 @@
 						{
 							"name": "daily income",
 							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
 								"method": "GET",
 								"header": [
 									{
@@ -2798,6 +2808,16 @@
 						{
 							"name": "sales by user",
 							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
 								"method": "GET",
 								"header": [
 									{
@@ -2823,6 +2843,16 @@
 						{
 							"name": "sales by category",
 							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
 								"method": "GET",
 								"header": [],
 								"url": {
@@ -2848,10 +2878,26 @@
 						{
 							"name": "cancelled orders report",
 							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
 								"method": "GET",
-								"header": [],
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
 								"url": {
-									"raw": "{{url}}/admin/reports/cancelled-orders",
+									"raw": "{{url}}/admin/reports/cancelled-orders?pagination_limit=1",
 									"host": [
 										"{{url}}"
 									],
@@ -2859,6 +2905,57 @@
 										"admin",
 										"reports",
 										"cancelled-orders"
+									],
+									"query": [
+										{
+											"key": "pagination_limit",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "income by time",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url}}/admin/reports/income-by-time?pagination_limit=5&date=12-04-2023",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"reports",
+										"income-by-time"
+									],
+									"query": [
+										{
+											"key": "pagination_limit",
+											"value": "5"
+										},
+										{
+											"key": "date",
+											"value": "12-04-2023"
+										}
 									]
 								}
 							},
