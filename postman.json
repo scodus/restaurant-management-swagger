@@ -3118,6 +3118,50 @@
 								}
 							},
 							"response": []
+						},
+						{
+							"name": "get orders data by date",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url}}/admin/dashboard/orders-data",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"dashboard",
+										"orders-data"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get revenue data",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/admin/dashboard/revenue-data",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"dashboard",
+										"revenue-data"
+									]
+								}
+							},
+							"response": []
 						}
 					]
 				}
