@@ -3039,6 +3039,49 @@
 							"response": []
 						}
 					]
+				},
+				{
+					"name": "Dashboard",
+					"item": [
+						{
+							"name": "today sales",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/admin/dashboard/today-sales",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"dashboard",
+										"today-sales"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "last month sales",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/admin/dashboard/last-month-sales",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"dashboard",
+										"last-month-sales"
+									]
+								}
+							},
+							"response": []
+						}
+					]
 				}
 			],
 			"auth": {
