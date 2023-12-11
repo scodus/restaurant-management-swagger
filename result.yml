@@ -40,6 +40,7 @@ tags:
   - name: Admin > Order Payment
   - name: Admin > Customer Partial Payments
   - name: Admin > Reports
+  - name: Admin > Cashier
   - name: Public
   - name: Public > Auth
 paths:
@@ -1793,6 +1794,29 @@ paths:
           schema:
             type: string
           example: 12-04-2023
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /admin/cashier/today-sales:
+    get:
+      tags:
+        - Admin > Cashier
+      summary: get today sales
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: pagination_limit
+          in: query
+          schema:
+            type: integer
+          example: '2'
       responses:
         '200':
           description: Successful response
