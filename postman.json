@@ -3006,6 +3006,37 @@
 								}
 							},
 							"response": []
+						},
+						{
+							"name": "sales history",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url}}/admin/cashier/sales-history?pagination_limit=3",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"cashier",
+										"sales-history"
+									],
+									"query": [
+										{
+											"key": "pagination_limit",
+											"value": "3"
+										}
+									]
+								}
+							},
+							"response": []
 						}
 					]
 				}
