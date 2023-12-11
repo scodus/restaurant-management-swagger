@@ -1854,11 +1854,31 @@ paths:
           description: Successful response
           content:
             application/json: {}
-  /admin/dashboard/last-month-sales:
+  /admin/dashboard/month-sales:
     get:
       tags:
         - Admin > Dashboard
-      summary: last month sales
+      summary: this month sales
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /admin/dashboard/orders-count:
+    get:
+      tags:
+        - Admin > Dashboard
+      summary: get this month orders count
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /admin/dashboard/cancel-order-count:
+    get:
+      tags:
+        - Admin > Dashboard
+      summary: count cancel orders this month
       responses:
         '200':
           description: Successful response
