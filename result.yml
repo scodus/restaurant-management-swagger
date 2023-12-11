@@ -1822,6 +1822,27 @@ paths:
           description: Successful response
           content:
             application/json: {}
+  /admin/cashier/sales-history:
+    get:
+      tags:
+        - Admin > Cashier
+      summary: sales history
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: pagination_limit
+          in: query
+          schema:
+            type: integer
+          example: '3'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
   /api/login:
     post:
       tags:
