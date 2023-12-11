@@ -3063,19 +3063,57 @@
 							"response": []
 						},
 						{
-							"name": "last month sales",
+							"name": "this month sales",
 							"request": {
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{url}}/admin/dashboard/last-month-sales",
+									"raw": "{{url}}/admin/dashboard/month-sales",
 									"host": [
 										"{{url}}"
 									],
 									"path": [
 										"admin",
 										"dashboard",
-										"last-month-sales"
+										"month-sales"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get this month orders count",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/admin/dashboard/orders-count",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"dashboard",
+										"orders-count"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "count cancel orders this month",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/admin/dashboard/cancel-order-count",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"dashboard",
+										"cancel-order-count"
 									]
 								}
 							},
