@@ -41,6 +41,7 @@ tags:
   - name: Admin > Customer Partial Payments
   - name: Admin > Reports
   - name: Admin > Cashier
+  - name: Admin > Dashboard
   - name: Public
   - name: Public > Auth
 paths:
@@ -1838,6 +1839,26 @@ paths:
           schema:
             type: integer
           example: '3'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /admin/dashboard/today-sales:
+    get:
+      tags:
+        - Admin > Dashboard
+      summary: today sales
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /admin/dashboard/last-month-sales:
+    get:
+      tags:
+        - Admin > Dashboard
+      summary: last month sales
       responses:
         '200':
           description: Successful response
