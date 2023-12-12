@@ -42,6 +42,7 @@ tags:
   - name: Admin > Reports
   - name: Admin > Cashier
   - name: Admin > Dashboard
+  - name: Admin > Cashier Session
   - name: Public
   - name: Public > Auth
 paths:
@@ -1905,6 +1906,48 @@ paths:
       tags:
         - Admin > Dashboard
       summary: get revenue data
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /admin/cashier-session:
+    post:
+      tags:
+        - Admin > Cashier Session
+      summary: Cashier Session In
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                session_in:
+                  type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /admin/cashier-session/status/check-session:
+    get:
+      tags:
+        - Admin > Cashier Session
+      summary: Cashier Session Check
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
       responses:
         '200':
           description: Successful response
