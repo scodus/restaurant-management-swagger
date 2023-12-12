@@ -3183,10 +3183,9 @@
 									"mode": "formdata",
 									"formdata": [
 										{
-											"key": "session_in",
-											"value": "",
-											"type": "text",
-											"disabled": true
+											"key": "drawer_amount",
+											"value": "500",
+											"type": "text"
 										}
 									]
 								},
@@ -3234,6 +3233,99 @@
 										"cashier-session",
 										"status",
 										"check-session"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "session checkout",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "_method",
+											"value": "put",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/admin/cashier-session/:session_id",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"cashier-session",
+										":session_id"
+									],
+									"variable": [
+										{
+											"key": "session_id",
+											"value": ""
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get all cashier session details",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url}}/admin/cashier-session",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"cashier-session"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get drawer amounts",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url}}/admin/drawer_amounts",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"drawer_amounts"
 									]
 								}
 							},
