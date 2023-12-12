@@ -1928,8 +1928,24 @@ paths:
             schema:
               type: object
               properties:
-                session_in:
-                  type: string
+                drawer_amount:
+                  type: integer
+                  example: '500'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    get:
+      tags:
+        - Admin > Cashier Session
+      summary: get all cashier session details
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
       responses:
         '200':
           description: Successful response
@@ -1942,6 +1958,49 @@ paths:
       summary: Cashier Session Check
       security:
         - bearerAuth: []
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /admin/cashier-session/{session_id}:
+    post:
+      tags:
+        - Admin > Cashier Session
+      summary: session checkout
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                _method:
+                  type: string
+                  example: put
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: session_id
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /admin/drawer_amounts:
+    get:
+      tags:
+        - Admin > Cashier Session
+      summary: get drawer amounts
       parameters:
         - name: Accept
           in: header
