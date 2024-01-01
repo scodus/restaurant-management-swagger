@@ -790,18 +790,107 @@
 									]
 								},
 								"url": {
-									"raw": "{{url}}/admin/product-categories/momo",
+									"raw": "{{url}}/admin/product-categories/:slug",
 									"host": [
 										"{{url}}"
 									],
 									"path": [
 										"admin",
 										"product-categories",
-										"momo"
+										":slug"
+									],
+									"variable": [
+										{
+											"key": "slug",
+											"value": ""
+										}
 									]
 								}
 							},
 							"response": []
+						},
+						{
+							"name": "show all nested product category",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/admin/nested-product-category",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"nested-product-category"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "New Request",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{url}}/admin/nested-product-category",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"admin",
+												"nested-product-category"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Host",
+											"value": "127.0.0.1:8000"
+										},
+										{
+											"key": "Date",
+											"value": "Mon, 01 Jan 2024 08:52:43 GMT"
+										},
+										{
+											"key": "Date",
+											"value": "Mon, 01 Jan 2024 08:52:43 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "close"
+										},
+										{
+											"key": "X-Powered-By",
+											"value": "PHP/8.2.11"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, private"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "X-RateLimit-Limit",
+											"value": "60"
+										},
+										{
+											"key": "X-RateLimit-Remaining",
+											"value": "58"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"data\": [\n        {\n            \"id\": 3,\n            \"category_name\": \"Drink\",\n            \"slug\": \"\",\n            \"parent_category_id\": null,\n            \"bar\": 0,\n            \"description\": \"My momo\",\n            \"category_image\": \"\",\n            \"status\": 0,\n            \"created_at\": \"2023-11-28T09:35:58.000000Z\",\n            \"updated_at\": \"2023-11-28T09:35:58.000000Z\",\n            \"parent_category\": null,\n            \"child_categories\": [\n                {\n                    \"id\": 1,\n                    \"category_name\": \"Juice\",\n                    \"slug\": \"momo\",\n                    \"parent_category_id\": 3,\n                    \"bar\": null,\n                    \"description\": \"My momo\",\n                    \"category_image\": \"\",\n                    \"status\": 0,\n                    \"created_at\": \"2023-11-28T09:35:58.000000Z\",\n                    \"updated_at\": \"2023-11-28T09:35:58.000000Z\",\n                    \"products\": [\n                        {\n                            \"id\": 1,\n                            \"product_name\": \"Momo\",\n                            \"slug\": \"momo\",\n                            \"product_category_id\": 1,\n                            \"base_price\": 550,\n                            \"ingredient\": \"gffg\",\n                            \"description\": \"fgfgfg\",\n                            \"product_image\": \"\",\n                            \"has_variation\": 1,\n                            \"product_variation\": [\n                                {\n                                    \"id\": 2,\n                                    \"variation_name\": \"Tea\",\n                                    \"price\": 200,\n                                    \"created_at\": \"2023-11-28T09:35:43.000000Z\",\n                                    \"updated_at\": \"2023-11-28T09:35:43.000000Z\"\n                                },\n                                {\n                                    \"id\": 45,\n                                    \"variation_name\": \"Steam Momo\",\n                                    \"price\": 100,\n                                    \"created_at\": \"2023-11-28T09:35:43.000000Z\",\n                                    \"updated_at\": \"2023-11-28T09:35:43.000000Z\"\n                                }\n                            ]\n                        }\n                    ]\n                }\n            ],\n            \"products\": []\n        },\n        {\n            \"id\": 4,\n            \"category_name\": \"Food\",\n            \"slug\": \"\",\n            \"parent_category_id\": null,\n            \"bar\": 0,\n            \"description\": \"My momo\",\n            \"category_image\": \"\",\n            \"status\": 0,\n            \"created_at\": \"2023-11-28T09:35:58.000000Z\",\n            \"updated_at\": \"2023-11-28T09:35:58.000000Z\",\n            \"parent_category\": null,\n            \"child_categories\": [\n                {\n                    \"id\": 2,\n                    \"category_name\": \"Momo\",\n                    \"slug\": \"momo\",\n                    \"parent_category_id\": 4,\n                    \"bar\": 0,\n                    \"description\": \"My momo\",\n                    \"category_image\": \"\",\n                    \"status\": 0,\n                    \"created_at\": \"2023-11-28T09:35:58.000000Z\",\n                    \"updated_at\": \"2023-11-28T09:35:58.000000Z\",\n                    \"products\": []\n                }\n            ],\n            \"products\": []\n        }\n    ]\n}"
+								}
+							]
 						}
 					]
 				},
@@ -1743,210 +1832,6 @@
 					]
 				},
 				{
-					"name": "PickUp Users",
-					"item": [
-						{
-							"name": "create pickup users",
-							"request": {
-								"auth": {
-									"type": "bearer",
-									"bearer": [
-										{
-											"key": "token",
-											"value": "{{token}}",
-											"type": "string"
-										}
-									]
-								},
-								"method": "POST",
-								"header": [
-									{
-										"key": "Accept",
-										"value": "application/json",
-										"type": "text"
-									}
-								],
-								"body": {
-									"mode": "formdata",
-									"formdata": [
-										{
-											"key": "full_name",
-											"value": "Nitesh Hamal",
-											"type": "text"
-										},
-										{
-											"key": "mobile_no",
-											"value": "9813371345",
-											"type": "text"
-										},
-										{
-											"key": "location",
-											"value": "Shankamul",
-											"type": "text"
-										},
-										{
-											"key": "time",
-											"value": "2023-10-16 09:12:00",
-											"type": "text"
-										}
-									]
-								},
-								"url": {
-									"raw": "{{url}}/admin/pickup-users",
-									"host": [
-										"{{url}}"
-									],
-									"path": [
-										"admin",
-										"pickup-users"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "get all pick up user",
-							"request": {
-								"auth": {
-									"type": "bearer",
-									"bearer": [
-										{
-											"key": "token",
-											"value": "{{token}}",
-											"type": "string"
-										}
-									]
-								},
-								"method": "GET",
-								"header": [],
-								"url": {
-									"raw": "{{url}}/admin/pickup-users?pagination_limit=2",
-									"host": [
-										"{{url}}"
-									],
-									"path": [
-										"admin",
-										"pickup-users"
-									],
-									"query": [
-										{
-											"key": "pagination_limit",
-											"value": "2"
-										}
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "delete pickup user",
-							"request": {
-								"auth": {
-									"type": "bearer",
-									"bearer": [
-										{
-											"key": "token",
-											"value": "{{token}}",
-											"type": "string"
-										}
-									]
-								},
-								"method": "DELETE",
-								"header": [],
-								"url": {
-									"raw": "{{url}}/admin/pickup-users/:id",
-									"host": [
-										"{{url}}"
-									],
-									"path": [
-										"admin",
-										"pickup-users",
-										":id"
-									],
-									"variable": [
-										{
-											"key": "id",
-											"value": ""
-										}
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "update pickup user",
-							"request": {
-								"auth": {
-									"type": "bearer",
-									"bearer": [
-										{
-											"key": "token",
-											"value": "{{token}}",
-											"type": "string"
-										}
-									]
-								},
-								"method": "POST",
-								"header": [
-									{
-										"key": "Accept",
-										"value": "application/json",
-										"type": "text"
-									}
-								],
-								"body": {
-									"mode": "formdata",
-									"formdata": [
-										{
-											"key": "full_name",
-											"value": "Pravesh Rai",
-											"type": "text"
-										},
-										{
-											"key": "mobile_no",
-											"value": "9813371345",
-											"type": "text"
-										},
-										{
-											"key": "location",
-											"value": "Shankamul",
-											"type": "text"
-										},
-										{
-											"key": "time",
-											"value": "2023-10-16 09:12:00",
-											"type": "text"
-										},
-										{
-											"key": "_method",
-											"value": "put",
-											"type": "text"
-										}
-									]
-								},
-								"url": {
-									"raw": "{{url}}/admin/pickup-users/:id",
-									"host": [
-										"{{url}}"
-									],
-									"path": [
-										"admin",
-										"pickup-users",
-										":id"
-									],
-									"variable": [
-										{
-											"key": "id",
-											"value": ""
-										}
-									]
-								}
-							},
-							"response": []
-						}
-					]
-				},
-				{
 					"name": "Order",
 					"item": [
 						{
@@ -2311,6 +2196,210 @@
 									"variable": [
 										{
 											"key": "payment_order_no",
+											"value": ""
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "PickUp Users",
+					"item": [
+						{
+							"name": "create pickup users",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "full_name",
+											"value": "Nitesh Hamal",
+											"type": "text"
+										},
+										{
+											"key": "mobile_no",
+											"value": "9813371345",
+											"type": "text"
+										},
+										{
+											"key": "location",
+											"value": "Shankamul",
+											"type": "text"
+										},
+										{
+											"key": "time",
+											"value": "2023-10-16 09:12:00",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/admin/pickup-users",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"pickup-users"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get all pick up user",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/admin/pickup-users?pagination_limit=2",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"pickup-users"
+									],
+									"query": [
+										{
+											"key": "pagination_limit",
+											"value": "2"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "delete pickup user",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/admin/pickup-users/:id",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"pickup-users",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": ""
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "update pickup user",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "full_name",
+											"value": "Pravesh Rai",
+											"type": "text"
+										},
+										{
+											"key": "mobile_no",
+											"value": "9813371345",
+											"type": "text"
+										},
+										{
+											"key": "location",
+											"value": "Shankamul",
+											"type": "text"
+										},
+										{
+											"key": "time",
+											"value": "2023-10-16 09:12:00",
+											"type": "text"
+										},
+										{
+											"key": "_method",
+											"value": "put",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/admin/pickup-users/:id",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"pickup-users",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
 											"value": ""
 										}
 									]
@@ -3252,7 +3341,13 @@
 									]
 								},
 								"method": "POST",
-								"header": [],
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
 								"body": {
 									"mode": "formdata",
 									"formdata": [
@@ -3295,13 +3390,19 @@
 									}
 								],
 								"url": {
-									"raw": "{{url}}/admin/cashier-session",
+									"raw": "{{url}}/admin/cashier-session?pagination_limit=4",
 									"host": [
 										"{{url}}"
 									],
 									"path": [
 										"admin",
 										"cashier-session"
+									],
+									"query": [
+										{
+											"key": "pagination_limit",
+											"value": "4"
+										}
 									]
 								}
 							},
