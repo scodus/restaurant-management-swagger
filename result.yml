@@ -34,8 +34,8 @@ tags:
   - name: Admin > Floor
   - name: Admin > Site Setting
   - name: Admin > Payment Option
-  - name: Admin > PickUp Users
   - name: Admin > Order
+  - name: Admin > PickUp Users
   - name: Admin > Order Details
   - name: Admin > Order Payment
   - name: Admin > Customer Partial Payments
@@ -474,7 +474,6 @@ paths:
           description: Successful response
           content:
             application/json: {}
-  /admin/product-categories/momo:
     post:
       tags:
         - Admin > Product Category
@@ -509,11 +508,135 @@ paths:
           schema:
             type: string
           example: application/json
+        - name: slug
+          in: path
+          schema:
+            type: string
+          required: true
       responses:
         '200':
           description: Successful response
           content:
             application/json: {}
+  /admin/nested-product-category:
+    get:
+      tags:
+        - Admin > Product Category
+      summary: show all nested product category
+      responses:
+        '200':
+          description: OK
+          headers:
+            Host:
+              schema:
+                type: string
+                example: 127.0.0.1:8000
+            Date:
+              schema:
+                type: string
+                example: Mon, 01 Jan 2024 08:52:43 GMT
+            Connection:
+              schema:
+                type: string
+                example: close
+            X-Powered-By:
+              schema:
+                type: string
+                example: PHP/8.2.11
+            Cache-Control:
+              schema:
+                type: string
+                example: no-cache, private
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+            X-RateLimit-Limit:
+              schema:
+                type: integer
+                example: '60'
+            X-RateLimit-Remaining:
+              schema:
+                type: integer
+                example: '58'
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+                example: '*'
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                data:
+                  - id: 3
+                    category_name: Drink
+                    slug: ''
+                    parent_category_id: null
+                    bar: 0
+                    description: My momo
+                    category_image: ''
+                    status: 0
+                    created_at: '2023-11-28T09:35:58.000000Z'
+                    updated_at: '2023-11-28T09:35:58.000000Z'
+                    parent_category: null
+                    child_categories:
+                      - id: 1
+                        category_name: Juice
+                        slug: momo
+                        parent_category_id: 3
+                        bar: null
+                        description: My momo
+                        category_image: ''
+                        status: 0
+                        created_at: '2023-11-28T09:35:58.000000Z'
+                        updated_at: '2023-11-28T09:35:58.000000Z'
+                        products:
+                          - id: 1
+                            product_name: Momo
+                            slug: momo
+                            product_category_id: 1
+                            base_price: 550
+                            ingredient: gffg
+                            description: fgfgfg
+                            product_image: ''
+                            has_variation: 1
+                            product_variation:
+                              - id: 2
+                                variation_name: Tea
+                                price: 200
+                                created_at: '2023-11-28T09:35:43.000000Z'
+                                updated_at: '2023-11-28T09:35:43.000000Z'
+                              - id: 45
+                                variation_name: Steam Momo
+                                price: 100
+                                created_at: '2023-11-28T09:35:43.000000Z'
+                                updated_at: '2023-11-28T09:35:43.000000Z'
+                    products: []
+                  - id: 4
+                    category_name: Food
+                    slug: ''
+                    parent_category_id: null
+                    bar: 0
+                    description: My momo
+                    category_image: ''
+                    status: 0
+                    created_at: '2023-11-28T09:35:58.000000Z'
+                    updated_at: '2023-11-28T09:35:58.000000Z'
+                    parent_category: null
+                    child_categories:
+                      - id: 2
+                        category_name: Momo
+                        slug: momo
+                        parent_category_id: 4
+                        bar: 0
+                        description: My momo
+                        category_image: ''
+                        status: 0
+                        created_at: '2023-11-28T09:35:58.000000Z'
+                        updated_at: '2023-11-28T09:35:58.000000Z'
+                        products: []
+                    products: []
   /admin/product-variations:
     post:
       tags:
@@ -1069,120 +1192,6 @@ paths:
           description: Successful response
           content:
             application/json: {}
-  /admin/pickup-users:
-    post:
-      tags:
-        - Admin > PickUp Users
-      summary: create pickup users
-      requestBody:
-        content:
-          multipart/form-data:
-            schema:
-              type: object
-              properties:
-                full_name:
-                  type: string
-                  example: Nitesh Hamal
-                mobile_no:
-                  type: integer
-                  example: '9813371345'
-                location:
-                  type: string
-                  example: Shankamul
-                time:
-                  type: string
-                  example: '2023-10-16 09:12:00'
-      security:
-        - bearerAuth: []
-      parameters:
-        - name: Accept
-          in: header
-          schema:
-            type: string
-          example: application/json
-      responses:
-        '200':
-          description: Successful response
-          content:
-            application/json: {}
-    get:
-      tags:
-        - Admin > PickUp Users
-      summary: get all pick up user
-      security:
-        - bearerAuth: []
-      parameters:
-        - name: pagination_limit
-          in: query
-          schema:
-            type: integer
-          example: '2'
-      responses:
-        '200':
-          description: Successful response
-          content:
-            application/json: {}
-  /admin/pickup-users/{id}:
-    delete:
-      tags:
-        - Admin > PickUp Users
-      summary: delete pickup user
-      security:
-        - bearerAuth: []
-      parameters:
-        - name: id
-          in: path
-          schema:
-            type: string
-          required: true
-      responses:
-        '200':
-          description: Successful response
-          content:
-            application/json: {}
-    post:
-      tags:
-        - Admin > PickUp Users
-      summary: update pickup user
-      requestBody:
-        content:
-          multipart/form-data:
-            schema:
-              type: object
-              properties:
-                full_name:
-                  type: string
-                  example: Pravesh Rai
-                mobile_no:
-                  type: integer
-                  example: '9813371345'
-                location:
-                  type: string
-                  example: Shankamul
-                time:
-                  type: string
-                  example: '2023-10-16 09:12:00'
-                _method:
-                  type: string
-                  example: put
-      security:
-        - bearerAuth: []
-      parameters:
-        - name: Accept
-          in: header
-          schema:
-            type: string
-          example: application/json
-        - name: id
-          in: path
-          schema:
-            type: string
-          required: true
-      responses:
-        '200':
-          description: Successful response
-          content:
-            application/json: {}
   /admin/orders:
     post:
       tags:
@@ -1405,6 +1414,120 @@ paths:
             type: string
           example: application/json
         - name: payment_order_no
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /admin/pickup-users:
+    post:
+      tags:
+        - Admin > PickUp Users
+      summary: create pickup users
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                full_name:
+                  type: string
+                  example: Nitesh Hamal
+                mobile_no:
+                  type: integer
+                  example: '9813371345'
+                location:
+                  type: string
+                  example: Shankamul
+                time:
+                  type: string
+                  example: '2023-10-16 09:12:00'
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    get:
+      tags:
+        - Admin > PickUp Users
+      summary: get all pick up user
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: pagination_limit
+          in: query
+          schema:
+            type: integer
+          example: '2'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /admin/pickup-users/{id}:
+    delete:
+      tags:
+        - Admin > PickUp Users
+      summary: delete pickup user
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: id
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    post:
+      tags:
+        - Admin > PickUp Users
+      summary: update pickup user
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                full_name:
+                  type: string
+                  example: Pravesh Rai
+                mobile_no:
+                  type: integer
+                  example: '9813371345'
+                location:
+                  type: string
+                  example: Shankamul
+                time:
+                  type: string
+                  example: '2023-10-16 09:12:00'
+                _method:
+                  type: string
+                  example: put
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: id
           in: path
           schema:
             type: string
@@ -1946,6 +2069,11 @@ paths:
           schema:
             type: string
           example: application/json
+        - name: pagination_limit
+          in: query
+          schema:
+            type: integer
+          example: '4'
       responses:
         '200':
           description: Successful response
@@ -1986,6 +2114,11 @@ paths:
       security:
         - bearerAuth: []
       parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
         - name: session_id
           in: path
           schema:
